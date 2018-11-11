@@ -1,7 +1,7 @@
 ﻿
 namespace TPA.Reflection.Model
 {
-  internal enum AbstractENum
+  public enum AbstractENum
   {
     NotAbstract, Abstract
   }

@@ -1,7 +1,7 @@
 ﻿
 namespace TPA.Reflection.Model
 {
-  internal enum  VirtualEnum
+  public enum  VirtualEnum
   {
     NotVirtual, Virtual 
   }

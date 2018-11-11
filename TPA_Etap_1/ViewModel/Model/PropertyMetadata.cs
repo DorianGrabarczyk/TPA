@@ -5,25 +5,24 @@ using System.Linq;
 
 namespace TPA.Reflection.Model
 {
-  internal class PropertyMetadata
-  {
-
-    internal static IEnumerable<PropertyMetadata> EmitProperties(IEnumerable<PropertyInfo> props)
+    public class PropertyMetadata
     {
-      return from prop in props
-             where prop.GetGetMethod().GetVisible() || prop.GetSetMethod().GetVisible()
-             select new PropertyMetadata(prop.Name, TypeMetadata.EmitReference(prop.PropertyType));
-    }
 
-    #region private
-    private string m_Name;
-    private TypeMetadata m_TypeMetadata;
-    private PropertyMetadata(string propertyName, TypeMetadata propertyType)
-    {
-      m_Name = propertyName;
-      m_TypeMetadata = propertyType;
-    }
-    #endregion
+        internal static IEnumerable<PropertyMetadata> EmitProperties(IEnumerable<PropertyInfo> props)
+        {
+            return from prop in props
+                   where prop.GetGetMethod().GetVisible() || prop.GetSetMethod().GetVisible()
+                   select new PropertyMetadata(prop.Name, TypeMetadata.EmitReference(prop.PropertyType));
+        }
 
-  }
+        #region private
+        public string m_Name { get; set; }
+        public TypeMetadata m_TypeMetadata { get; set; }
+        public PropertyMetadata(string propertyName, TypeMetadata propertyType)
+        {
+            m_Name = propertyName;
+            m_TypeMetadata = propertyType;
+        }
+        #endregion
+    }
 }
