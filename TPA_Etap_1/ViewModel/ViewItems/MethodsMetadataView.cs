@@ -11,7 +11,7 @@ namespace ViewModel.ViewItems
     {
         private IEnumerable<MethodMetadata> _methods;
 
-        public override string Name => throw new NotImplementedException();
+        public override string Name => this.ToString();
         public override bool Expandable => _methods?.Count() > 0;
 
         public MethodsMetadataView(IEnumerable<MethodMetadata> methods)
@@ -21,7 +21,10 @@ namespace ViewModel.ViewItems
 
         public override void LoadChildren()
         {
-            //...
+            Children.Clear();
+
+            foreach (var child in _methods)
+                Children.Add(new MethodMetadataView(child));
         }
 
         public override string ToString()

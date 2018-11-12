@@ -22,7 +22,10 @@ namespace ViewModel.ViewItems
 
         public override void LoadChildren()
         {
-            //Children.Clear();
+            Children.Clear();
+            base.Children.Add(new ConstructorsView(_typeMetadata.m_Constructors));
+            Children.Add(new MethodsMetadataView(_typeMetadata.m_Methods));
+            Children.Add(new PropertiesMetadataView(_typeMetadata.m_Properties));
         }
 
         public override string ToString()

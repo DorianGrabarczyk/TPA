@@ -26,7 +26,13 @@ namespace ViewModel.ViewItems
 
         public override string ToString()
         {
-            return "Method: " + _method.Name;
+            if (_method.m_ReturnType != null)
+            {
+                return "Method: " + _method.m_ReturnType.Name + " " + _method.Name;
+            }
+            else
+                return "Method: " + _method.Name;
+;
         }
     }
 }
