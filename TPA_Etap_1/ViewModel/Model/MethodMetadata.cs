@@ -22,9 +22,9 @@ namespace TPA_Etap_1.Reflection.Model
         private string m_Name;
         private IEnumerable<TypeMetadata> m_GenericArguments;
         private Tuple<AccessLevel, AbstractENum, StaticEnum, VirtualEnum> m_Modifiers;
-        private TypeMetadata m_ReturnType;
+        public TypeMetadata m_ReturnType;
         private bool m_Extension;
-        private IEnumerable<ParameterMetadata> m_Parameters;
+        public IEnumerable<ParameterMetadata> m_Parameters;
         //constructor
         private MethodMetadata(MethodBase method)
         {

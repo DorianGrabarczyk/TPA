@@ -58,6 +58,7 @@
     <Compile Include="ViewItems\AssemblyMetadataView.cs" />
     <Compile Include="ViewItems\ConstructorsView.cs" />
     <Compile Include="ViewItems\MethodMetadataView.cs" />
+    <Compile Include="ViewItems\MethodsMetadataView.cs" />
     <Compile Include="ViewItems\NamespaceMetadataView.cs" />
     <Compile Include="ViewItems\ITree.cs" />
     <Compile Include="ViewItems\ParameterMetadataView.cs" />
