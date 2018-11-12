@@ -56,8 +56,11 @@
     <Compile Include="Model\VirtualEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewItems\AssemblyMetadataView.cs" />
+    <Compile Include="ViewItems\ConstructorsView.cs" />
+    <Compile Include="ViewItems\MethodMetadataView.cs" />
     <Compile Include="ViewItems\NamespaceMetadataView.cs" />
     <Compile Include="ViewItems\ITree.cs" />
+    <Compile Include="ViewItems\ParameterMetadataView.cs" />
     <Compile Include="ViewItems\PropertiesMetadataView.cs" />
     <Compile Include="ViewItems\PropertyMetadataView.cs" />
   </ItemGroup>
