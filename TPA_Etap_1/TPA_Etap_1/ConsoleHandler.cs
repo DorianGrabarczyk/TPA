@@ -33,8 +33,12 @@ namespace TPA_Etap_1
         public void DisplayTree()
         {
             AssemblyMetadataView rootItem = new AssemblyMetadataView(reflector.AssemblyModel);
-           // rootItem.LoadChildren();
+            rootItem.LoadChildren();         
             Console.WriteLine(rootItem.Name);
+            foreach(var a in rootItem.Children)
+            {
+                Console.WriteLine(" " + a.Name);
+            }           
             Console.ReadKey();
         }
 

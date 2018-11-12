@@ -21,7 +21,9 @@ namespace ViewModel.ViewItems
 
         public override void LoadChildren()
         {
-            //Children.Clear();      
+            Children.Clear();
+            foreach (var child in _assembly.m_Namespaces)
+                Children.Add(new NamespaceMetadataView(child));
         }
         public override string ToString()
         {
