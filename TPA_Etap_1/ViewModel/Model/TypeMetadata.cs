@@ -55,10 +55,10 @@ namespace TPA_Etap_1.Reflection.Model
         private IEnumerable<Attribute> m_Attributes;
         private IEnumerable<TypeMetadata> m_ImplementedInterfaces;
         private IEnumerable<TypeMetadata> m_NestedTypes;
-        private IEnumerable<PropertyMetadata> m_Properties;
+        public IEnumerable<PropertyMetadata> m_Properties;
         private TypeMetadata m_DeclaringType;
-        private IEnumerable<MethodMetadata> m_Methods;
-        private IEnumerable<MethodMetadata> m_Constructors;
+        public IEnumerable<MethodMetadata> m_Methods;
+        public IEnumerable<MethodMetadata> m_Constructors;
         //constructors
         private TypeMetadata(string typeName, string namespaceName)
         {

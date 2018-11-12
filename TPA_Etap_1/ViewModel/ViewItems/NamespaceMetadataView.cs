@@ -21,8 +21,9 @@ namespace ViewModel.ViewItems
 
         public override void LoadChildren()
         {
-            
-
+            Children.Clear();
+            foreach (var child in _namespaceMetadata.m_Types)
+                Children.Add(new TypeMetadataView(child));
         }
         public override string ToString()
         {

@@ -60,6 +60,7 @@
     <Compile Include="ViewItems\ITree.cs" />
     <Compile Include="ViewItems\PropertiesMetadataView.cs" />
     <Compile Include="ViewItems\PropertyMetadataView.cs" />
+    <Compile Include="ViewItems\TypeMetadataView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
