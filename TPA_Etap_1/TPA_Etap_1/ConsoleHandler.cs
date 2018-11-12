@@ -37,7 +37,18 @@ namespace TPA_Etap_1
             Console.WriteLine(rootItem.Name);
             foreach(var a in rootItem.Children)
             {
-                Console.WriteLine(" " + a.Name);
+                if (a != null)
+                {
+                    a.LoadChildren();
+                    Console.WriteLine(" " + a.Name);
+                }
+                foreach(var b in a.Children)
+                {
+                    if(b!= null)
+                    {
+                        Console.WriteLine("  " + b.Name);
+                    }
+                }
             }           
             Console.ReadKey();
         }
