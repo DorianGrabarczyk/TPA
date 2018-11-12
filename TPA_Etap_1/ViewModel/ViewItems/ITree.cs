@@ -11,7 +11,9 @@ namespace ViewModel.ViewItems
     {
         public ITree()
         {
-            
+            Children = new ObservableCollection<ITree>();
+            Children.Add(null);
+            isExpanded = false;
         }
         public abstract string Name { get; }
         public ObservableCollection<ITree> Children { get; set; }
@@ -27,8 +29,8 @@ namespace ViewModel.ViewItems
             {
                 if (Expandable)
                     isExpanded = value;
-                if (isExpanded)
-                    isExpanded = false;
+                        if (isExpanded)
+                            LoadChildren();
 
             }
         }
