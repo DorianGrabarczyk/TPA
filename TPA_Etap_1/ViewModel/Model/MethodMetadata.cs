@@ -20,7 +20,7 @@ namespace TPA_Etap_1.Reflection.Model
         #region private
         //vars
         private string m_Name;
-        private IEnumerable<TypeMetadata> m_GenericArguments;
+        public IEnumerable<TypeMetadata> m_GenericArguments;
         private Tuple<AccessLevel, AbstractENum, StaticEnum, VirtualEnum> m_Modifiers;
         public TypeMetadata m_ReturnType;
         private bool m_Extension;

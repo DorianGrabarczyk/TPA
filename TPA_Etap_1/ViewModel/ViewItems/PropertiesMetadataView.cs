@@ -21,7 +21,10 @@ namespace ViewModel.ViewItems
 
         public override void LoadChildren()
         {
-            //...
+            Children.Clear();
+            foreach (var child in _properties)
+                Children.Add(new PropertyMetadataView(child));
+
         }
 
         public override string ToString()

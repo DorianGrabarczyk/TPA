@@ -21,7 +21,9 @@ namespace ViewModel.ViewItems
 
         public override void LoadChildren()
         {
-            //...
+            Children.Clear();
+            foreach (var child in _constructors)
+                Children.Add(new MethodMetadataView(child));
         }
 
         public override string ToString()
