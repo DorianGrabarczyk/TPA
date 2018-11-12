@@ -12,10 +12,21 @@ namespace ViewModel.ViewItems
         private MethodMetadata _method;
 
         public override string Name => this.ToString();
+        public override bool Expandable => _method.m_Parameters?.Count() > 0 || _method.m_ReturnType != null;
+
+        public MethodMetadataView(MethodMetadata method)
+        {
+            _method = method;
+        }
 
         public override void LoadChildren()
         {
-            throw new NotImplementedException();
+            //...
+        }
+
+        public override string ToString()
+        {
+            return "Method: " + _method.Name;
         }
     }
 }
