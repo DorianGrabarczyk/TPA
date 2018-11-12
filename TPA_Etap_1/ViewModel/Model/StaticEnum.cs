@@ -1,7 +1,7 @@
 ﻿
-namespace TPA.Reflection.Model
+namespace TPA_Etap_1.Reflection.Model
 {
-  internal enum StaticEnum
+  public enum StaticEnum
   {
     NotStatic, Static
   }

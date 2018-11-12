@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-namespace TPA.Reflection.Model
+namespace TPA_Etap_1.Reflection.Model
 {
     public class MethodMetadata
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace TPA.Reflection.Model
+namespace TPA_Etap_1.Reflection.Model
 {
   public class ParameterMetadata
   {

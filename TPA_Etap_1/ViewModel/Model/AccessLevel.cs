@@ -1,8 +1,8 @@
 ﻿
-namespace TPA.Reflection.Model
+namespace TPA_Etap_1.Reflection.Model
 {
-  public enum AccessLevel
-  {
-      IsPublic, IsProtected, IsProtectedInternal, IsPrivate
-  }
+    public enum AccessLevel
+    {
+        IsPublic, IsProtected, IsProtectedInternal, IsPrivate
+    }
 }

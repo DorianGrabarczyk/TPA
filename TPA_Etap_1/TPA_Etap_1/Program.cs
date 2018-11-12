@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TPA
+namespace TPA_Etap_1
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-
+            IDisplayHandler displayHandler = new ConsoleHandler();
+            displayHandler.DisplayMenu();
         }
     }
 }

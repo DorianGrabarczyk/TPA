@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TPA.Reflection.Model
+namespace TPA_Etap_1.Reflection.Model
 {
     public class TypeMetadata
     {

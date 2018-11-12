@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
 
-namespace TPA.Reflection.Model
+namespace TPA_Etap_1.Reflection.Model
 {
     public class PropertyMetadata
     {

@@ -2,20 +2,20 @@
 using System;
 using System.Reflection;
 
-namespace TPA.Reflection.Model
+namespace TPA_Etap_1.Reflection.Model
 {
   public static class ExtensionMethods
   {
 
-    public static bool GetVisible(this Type type)
+    internal static bool GetVisible(this Type type)
     {
       return type.IsPublic || type.IsNestedPublic || type.IsNestedFamily || type.IsNestedFamANDAssem;
     }
-    public static bool GetVisible(this MethodBase method)
+    internal static bool GetVisible(this MethodBase method)
     {
       return method != null && (method.IsPublic || method.IsFamily || method.IsFamilyAndAssembly);
     }
-    public static string GetNamespace(this Type type)
+    internal static string GetNamespace(this Type type)
     {
       string ns = type.Namespace;
       return ns != null ? ns : string.Empty;
