@@ -23,6 +23,7 @@ namespace GUI
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new ViewContext();
         }
     }
 }

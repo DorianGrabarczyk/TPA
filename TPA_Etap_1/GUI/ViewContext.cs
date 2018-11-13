@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
+using ViewModel;
 using ViewModel.ViewItems;
 
 namespace GUI
@@ -31,6 +32,7 @@ namespace GUI
         public ViewContext()
         {
             Browse_Bttn = new RelayCommand(Browse);
+            HierarchicalAreas = new ObservableCollection<ITree>();
         }
 
 
@@ -39,7 +41,7 @@ namespace GUI
         #region DC
 
         public ObservableCollection<ITree> HierarchicalAreas { get; set; }
-        public string PathVariable
+        public string Path
         {
             get { return _path; }
             set { _path = value; }
@@ -57,8 +59,35 @@ namespace GUI
 
         public void Browse()
         {
-            OpenFileDialog text = new OpenFileDialog();
+            OpenFileDialog text = new OpenFileDialog()
+            {
+                Filter = "Dynamic Library File(*.dll)| *.dll"
+            };
             text.ShowDialog();
+
+            if (text.FileName.Length == 0)
+            {
+                MessageBox.Show("No file was selected.");
+            }
+            else
+            {
+                _path = text.FileName;
+                _visibility = Visibility.Visible;
+                RaisePropertyChanged("ChangeControlVisibility");
+                RaisePropertyChanged("Path");
+
+                if (_path.Substring(_path.Length - 4) == ".dll")
+                    TreeViewLoaded();
+            }
+        }
+
+        public void TreeViewLoaded()
+        {
+            Reflector reflector = new Reflector();
+            reflector.Reflect(_path);
+            AssemblyMetadataView rootItem = new AssemblyMetadataView(reflector.AssemblyModel);
+            rootItem.LoadChildren();
+            HierarchicalAreas.Add(rootItem);
         }
 
         #endregion
