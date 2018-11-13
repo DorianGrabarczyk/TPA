@@ -21,7 +21,10 @@ namespace ViewModel.ViewItems
 
         public override void LoadChildren()
         {
-            //...
+            Children.Clear();
+            foreach (var child in _method.m_Parameters)
+                Children.Add(new ParameterMetadataView(child));
+           
         }
 
         public override string ToString()
