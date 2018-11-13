@@ -59,8 +59,25 @@ namespace TPA_Etap_1
                                     if (d != null)
                                     {
                                         {
-                                            
+                                            d.LoadChildren();
                                             Console.WriteLine("    " + d.Name);
+                                            foreach(var e in d.Children)
+                                            {
+                                                if(e!=null)
+                                                {
+                                                    e.LoadChildren();
+                                                    Console.WriteLine("     " + e.Name);
+                                                    foreach(var f in e.Children)
+                                                    {
+                                                        if(f!=null)
+                                                        {
+                                                            //f.LoadChildren();
+                                                            Console.WriteLine("        " + f.Name);
+                                                            
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
