@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandTreeItems.cs" />
     <Compile Include="ConsoleHandler.cs" />
     <Compile Include="IDisplayHandler.cs" />
     <Compile Include="Program.cs" />
