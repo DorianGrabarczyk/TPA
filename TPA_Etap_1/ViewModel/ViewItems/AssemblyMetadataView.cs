@@ -21,7 +21,7 @@ namespace ViewModel.ViewItems
             base.LoadChildren();
             Children.Clear();
             foreach (var child in _assembly.m_Namespaces)
-                Children.Add(new NamespaceMetadataView(Log, child));
+                base.Children.Add(new NamespaceMetadataView(Log, child));
         }
         public override string ToString()
         {
