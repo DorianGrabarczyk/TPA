@@ -8,3 +8,8 @@ TPA_Etap_1/GUI/bin
 TPA_Etap_1/Loging/bin/
 TPA_Etap_1/Loging/obj/
 TPA_Etap_1/Log.txt
+TPA_Etap_1/TestLog.txt
+TPA_Etap_1/TestResults
+TPA_Etap_1/Tests/bin
+TPA_Etap_1/Tests/obj
+TPA_Etap_1/packages

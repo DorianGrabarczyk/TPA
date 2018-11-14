@@ -126,19 +126,20 @@ namespace TPA_Etap_1
             foreach(var ob in toAdd)
             {
                 loadedChildren.Add(new CommandTreeItems((depth + 1), ob));
+                Log.Log(LogEnum.Information, "Element " + ob.Name + " was added.");
             }
             depth++;
-
-
+            Log.Log(LogEnum.Information, "Expanded to depth " + depth);
         }
+
         public void compressTree()
         {
-            if(depth>0)
+            if (depth > 0)
             {
-                foreach(var item in loadedChildren)
+                foreach (var item in loadedChildren)
                 {
-                    
-                    if(item._depth == depth)
+
+                    if (item._depth == depth)
                     {
                         if (item._itree != null)
                             item._itree.IsExpanded = false;
@@ -146,7 +147,9 @@ namespace TPA_Etap_1
 
                 }
                 depth--;
+                Log.Log(LogEnum.Information, "Tree compressed to depth " + depth);
             }
+            else Log.Log(LogEnum.Warning, "Tree cannot be compressed further.");
         }
 
 
