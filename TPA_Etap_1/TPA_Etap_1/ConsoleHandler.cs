@@ -33,23 +33,29 @@ namespace TPA_Etap_1
             loadedChildren.Add(new CommandTreeItems(0, _viewContext.HierarchicalAreas[0]));
             Console.Clear();
             do {
-                Console.WriteLine("Info:\n" +
-                                  "w / expand to expand tree\n" +
-                                  "s / collapse to hide one level\n" +
-                                  "p / print to print tree\n" +
-                                  "e / exit to close program\n" +
-                                  "n / change to change path");
+                Console.WriteLine("Informations:\n" +
+                                  "w to expand tree\n" +
+                                  "c to compress one level\n" +
+                                  "p  to print tree\n" +
+                                  "exit to close program\n" +
+                                  "ch to change path");
                 choice = Console.ReadLine();
                 Console.WriteLine();
 
                 if (choice == "w")
                     ExpandTree();
+                if (choice == "c")
+                    compressTree();
                 if (choice == "print" || choice == "p")
                 {
                     DisplayTree(_viewContext.HierarchicalAreas, 0);
                     Console.WriteLine("\nPress any key to continue...");
                     Console.ReadKey();
                 }
+                if (choice == "ch")
+                    OpenFile(SelectFile());
+                if (choice == "exit")
+                    return ;
                 choice = "";
                 Console.Clear();
             }
@@ -79,7 +85,7 @@ namespace TPA_Etap_1
             {
                 if (item != null)
                 {
-                    Console.WriteLine(TabsCreator(currentDepth) + item.Name);
+                    Console.WriteLine(paragraphs(currentDepth) + item.Name);
                     if (currentDepth < depth)
                     {
                         DisplayTree(item.Children, currentDepth + 1);
@@ -88,7 +94,7 @@ namespace TPA_Etap_1
 
             }           
         }
-        private string TabsCreator(int depth)
+        private string paragraphs(int depth)
         {
             string tabulator = "";
             for (int i = 0; i < depth; i++)
@@ -124,6 +130,23 @@ namespace TPA_Etap_1
             depth++;
 
 
+        }
+        public void compressTree()
+        {
+            if(depth>0)
+            {
+                foreach(var item in loadedChildren)
+                {
+                    
+                    if(item._depth == depth)
+                    {
+                        if (item._itree != null)
+                            item._itree.IsExpanded = false;
+                    }
+
+                }
+                depth--;
+            }
         }
 
 
