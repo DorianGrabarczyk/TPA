@@ -35,17 +35,7 @@ namespace TPA_Etap_1.Reflection.Model
         internal static TypeMetadata EmitReference(Type type)
         {
             if (!type.IsGenericType)
-                if (m_typesMetadata.ContainsKey(type.FullName))
-                {
-                    return m_typesMetadata[type.FullName];
-                }
-                else
-                {
-                    TypeMetadata newType = new TypeMetadata(type.FullName, type.GetNamespace(), type);
-                    m_typesMetadata.Add(type.FullName, newType);
-                    return newType;
-                }
-            //return new TypeMetadata(type.Name, type.GetNamespace(), type);
+                return new TypeMetadata(type.Name, type.GetNamespace(),type);
             else
                 return new TypeMetadata(type.Name, type.GetNamespace(), EmitGenericArguments(type.GetGenericArguments()));
         }
