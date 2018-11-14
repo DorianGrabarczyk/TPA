@@ -11,16 +11,17 @@ namespace TPA_Etap_1.Reflection.Model
         #region constructors
         internal TypeMetadata(Type type)
         {
+            m_Type = type;
             m_typeName = type.Name;
             m_DeclaringType = EmitDeclaringType(type.DeclaringType);
-            m_Constructors = MethodMetadata.EmitMethods(type.GetConstructors());
-            m_Methods = MethodMetadata.EmitMethods(type.GetMethods());
+            Constructors = MethodMetadata.EmitMethods(type.GetConstructors());
+            //m_Methods = MethodMetadata.EmitMethods(type.GetMethods());
             m_NestedTypes = EmitNestedTypes(type.GetNestedTypes());
             m_ImplementedInterfaces = EmitImplements(type.GetInterfaces());
             m_GenericArguments = !type.IsGenericTypeDefinition ? null : TypeMetadata.EmitGenericArguments(type.GetGenericArguments());
             m_Modifiers = EmitModifiers(type);
             m_BaseType = EmitExtends(type.BaseType);
-            m_Properties = PropertyMetadata.EmitProperties(type.GetProperties());
+            Properties = PropertyMetadata.EmitProperties(type.GetProperties());
             m_TypeKind = GetTypeKind(type);
             m_Attributes = type.GetCustomAttributes(false).Cast<Attribute>();
         }
@@ -34,7 +35,17 @@ namespace TPA_Etap_1.Reflection.Model
         internal static TypeMetadata EmitReference(Type type)
         {
             if (!type.IsGenericType)
-                return new TypeMetadata(type.Name, type.GetNamespace());
+                if (m_typesMetadata.ContainsKey(type.FullName))
+                {
+                    return m_typesMetadata[type.FullName];
+                }
+                else
+                {
+                    TypeMetadata newType = new TypeMetadata(type.FullName, type.GetNamespace(), type);
+                    m_typesMetadata.Add(type.FullName, newType);
+                    return newType;
+                }
+            //return new TypeMetadata(type.Name, type.GetNamespace(), type);
             else
                 return new TypeMetadata(type.Name, type.GetNamespace(), EmitGenericArguments(type.GetGenericArguments()));
         }
@@ -46,6 +57,7 @@ namespace TPA_Etap_1.Reflection.Model
 
         #region private
         //vars
+        private Type m_Type;
         private string m_typeName;
         private string m_NamespaceName;
         private TypeMetadata m_BaseType;
@@ -59,11 +71,22 @@ namespace TPA_Etap_1.Reflection.Model
         private TypeMetadata m_DeclaringType;
         public IEnumerable<MethodMetadata> m_Methods;
         public IEnumerable<MethodMetadata> m_Constructors;
+        public IEnumerable<MethodMetadata> Methods { get { return MethodMetadata.EmitMethods(m_Type.GetMethods()); } }
+        public IEnumerable<MethodMetadata> Constructors { get; set; }
+        public IEnumerable<PropertyMetadata> Properties { get; set; }
+        private static Dictionary<String, TypeMetadata> m_typesMetadata = new Dictionary<string, TypeMetadata>();
         //constructors
         private TypeMetadata(string typeName, string namespaceName)
         {
             m_typeName = typeName;
             m_NamespaceName = namespaceName;
+        }
+        private TypeMetadata(string typeName, string namespaceName, Type type)
+        {
+            m_typeName = typeName;
+            m_NamespaceName = namespaceName;
+            m_Type = type;
+            Properties = PropertyMetadata.EmitProperties(type.GetProperties());
         }
         private TypeMetadata(string typeName, string namespaceName, IEnumerable<TypeMetadata> genericArguments) : this(typeName, namespaceName)
         {

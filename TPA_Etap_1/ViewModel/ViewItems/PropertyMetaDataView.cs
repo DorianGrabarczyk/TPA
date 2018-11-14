@@ -17,12 +17,12 @@ namespace ViewModel.ViewItems
         }
 
         public override string Name => this.ToString();
-        public override bool Expandable => _property.m_Name.Count() > 0;
+        public override bool Expandable => _property.m_TypeMetadata != null;
 
         public override void LoadChildren()
         {
             Children.Clear();
-            Children.Add(new TypeMetadataView(_property.m_TypeMetadata));
+            Children.Add(new TypeMetadataView(_property.m_TypeMetadata))    ;
         }
 
         public override string ToString()

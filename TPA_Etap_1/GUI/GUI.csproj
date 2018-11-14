@@ -53,6 +53,7 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewContext.cs" />
@@ -97,7 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ViewModel\ViewModel.csproj">
-      <Project>{f6d78536-2603-4666-9aac-209c2b46a73a}</Project>
+      <Project>{F6D78536-2603-4666-9AAC-209C2B46A73A}</Project>
       <Name>ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
