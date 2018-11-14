@@ -15,7 +15,7 @@ namespace ViewModel.ViewItems
         {
             _namespaceMetadata = namespaceMetadata;
         }
-        public override bool Expandable => _namespaceMetadata?.m_Types.Count() > 0;
+        public override bool Expandable => _namespaceMetadata.m_Types?.Count() > 0;
 
         public override string Name => this.ToString();
 

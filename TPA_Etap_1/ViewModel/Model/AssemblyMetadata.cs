@@ -20,7 +20,7 @@ namespace TPA_Etap_1.Reflection.Model
         }
 
         public string m_Name;
-        public IEnumerable<NamespaceMetadata> m_Namespaces;
+        public IEnumerable<NamespaceMetadata> m_Namespaces { get; set; }
         public string Name { get { return m_Name; } set { Name = m_Name; } }
 
     }

@@ -24,16 +24,17 @@ namespace ViewModel.ViewItems
             Children.Clear();
             foreach (var child in _method.m_Parameters)
                 Children.Add(new ParameterMetadataView(child));
-           
+            base.Children.Add(new TypeMetadataView(_method.m_ReturnType));
+
         }
 
         public override string ToString()
         {
-            if (_method.m_ReturnType != null)
+          /*  if (_method.m_ReturnType != null)
             {
                 return "Method: " + _method.m_ReturnType.Name + " " + _method.Name;
             }
-            else
+            else */
                 return "Method: " + _method.Name;
 ;
         }

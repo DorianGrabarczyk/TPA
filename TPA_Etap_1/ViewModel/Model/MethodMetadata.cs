@@ -24,7 +24,7 @@ namespace TPA_Etap_1.Reflection.Model
         private Tuple<AccessLevel, AbstractENum, StaticEnum, VirtualEnum> m_Modifiers;
         public TypeMetadata m_ReturnType;
         private bool m_Extension;
-        public IEnumerable<ParameterMetadata> m_Parameters;
+        public IEnumerable<ParameterMetadata> m_Parameters { get; set; }
         //constructor
         private MethodMetadata(MethodBase method)
         {

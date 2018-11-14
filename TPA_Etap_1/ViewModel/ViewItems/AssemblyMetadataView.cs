@@ -17,7 +17,7 @@ namespace ViewModel.ViewItems
         }
 
         public override string Name => this.ToString();
-        public override bool Expandable => _assembly.m_Namespaces.Count() > 0;
+        public override bool Expandable => _assembly.m_Namespaces?.Count() > 0;
 
         public override void LoadChildren()
         {
