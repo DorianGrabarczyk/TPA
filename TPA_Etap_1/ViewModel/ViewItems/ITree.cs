@@ -29,8 +29,8 @@ namespace ViewModel.ViewItems
             {
                 if (Expandable)
                     isExpanded = value;
-                        if (isExpanded)
-                            LoadChildren();
+                if (isExpanded)
+                    LoadChildren();
 
             }
         }
