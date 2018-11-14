@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Loging;
+using Microsoft.Win32;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
@@ -22,6 +23,7 @@ namespace GUI
 
         #region Private
 
+        private Logger _log;
         private string _path;
         private Visibility _visibility;
 
@@ -29,8 +31,9 @@ namespace GUI
 
         #region Constructors
 
-        public ViewContext()
+        public ViewContext(Logger log)
         {
+            _log = log;
             Browse_Bttn = new RelayCommand(Browse);
             HierarchicalAreas = new ObservableCollection<ITree>();
         }
@@ -68,16 +71,20 @@ namespace GUI
             if (text.FileName.Length == 0)
             {
                 MessageBox.Show("No file was selected.");
+                _log.Log(LogEnum.Error, "No file was selected.");
             }
             else
             {
                 _path = text.FileName;
+                _log.Log(LogEnum.Information, "A file was chosen.");
                 _visibility = Visibility.Visible;
                 RaisePropertyChanged("ChangeControlVisibility");
                 RaisePropertyChanged("Path");
 
                 if (_path.Substring(_path.Length - 4) == ".dll")
+                {
                     TreeViewLoaded();
+                }
             }
         }
 
@@ -85,7 +92,7 @@ namespace GUI
         {
             Reflector reflector = new Reflector();
             reflector.Reflect(_path);
-            AssemblyMetadataView rootItem = new AssemblyMetadataView(reflector.AssemblyModel);
+            AssemblyMetadataView rootItem = new AssemblyMetadataView(_log, reflector.AssemblyModel);
             rootItem.LoadChildren();
             HierarchicalAreas.Add(rootItem);
         }

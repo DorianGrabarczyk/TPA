@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Loging;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TPA_Etap_1.Reflection.Model;
 
 namespace ViewModel.ViewItems
@@ -14,16 +12,17 @@ namespace ViewModel.ViewItems
         public override string Name => this.ToString();
         public override bool Expandable => _constructors?.Count() > 0;
 
-        public ConstructorsView(IEnumerable<MethodMetadata> constructors)
+        public ConstructorsView(Logger log, IEnumerable<MethodMetadata> constructors) : base(log)
         {
             _constructors = constructors;
         }
 
         public override void LoadChildren()
         {
+            base.LoadChildren();
             Children.Clear();
             foreach (var child in _constructors)
-                Children.Add(new MethodMetadataView(child));
+                Children.Add(new MethodMetadataView(Log, child));
         }
 
         public override string ToString()

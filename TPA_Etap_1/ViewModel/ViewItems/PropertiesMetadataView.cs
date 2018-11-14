@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Loging;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TPA_Etap_1.Reflection.Model;
 
 namespace ViewModel.ViewItems
@@ -11,7 +9,7 @@ namespace ViewModel.ViewItems
     {
         private IEnumerable<PropertyMetadata> _properties;
 
-        public PropertiesMetadataView(IEnumerable<PropertyMetadata> properties)
+        public PropertiesMetadataView(Logger log, IEnumerable<PropertyMetadata> properties) : base(log)
         {
             _properties = properties;
         }
@@ -21,9 +19,10 @@ namespace ViewModel.ViewItems
 
         public override void LoadChildren()
         {
+            base.LoadChildren();
             Children.Clear();
             foreach (var child in _properties)
-                Children.Add(new PropertyMetadataView(child));
+                Children.Add(new PropertyMetadataView(Log, child));
 
         }
 

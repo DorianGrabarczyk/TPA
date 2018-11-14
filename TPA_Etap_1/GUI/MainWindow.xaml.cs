@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Loging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,8 +23,11 @@ namespace GUI
     {
         public MainWindow()
         {
+            Logger Log = new Logger("../../../Log.txt");
+            Log.Log(LogEnum.Information, "Program is starting.");
+
             InitializeComponent();
-            DataContext = new ViewContext();
+            DataContext = new ViewContext(Log);
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Loging;
 using TPA_Etap_1.Reflection.Model;
 
 namespace ViewModel.ViewItems
@@ -14,16 +10,16 @@ namespace ViewModel.ViewItems
         public override string Name => this.ToString();
         public override bool Expandable => _parameter.m_TypeMetadata != null;
 
-        public ParameterMetadataView(ParameterMetadata parameter)
+        public ParameterMetadataView(Logger log, ParameterMetadata parameter) : base(log)
         {
             _parameter = parameter;
         }
 
         public override void LoadChildren()
         {
+            base.LoadChildren();
             Children.Clear();
-
-            base.Children.Add(new TypeMetadataView(_parameter.m_TypeMetadata));
+            base.Children.Add(new TypeMetadataView(Log, _parameter.m_TypeMetadata));
         }
 
         public override string ToString()

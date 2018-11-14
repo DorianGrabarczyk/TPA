@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Loging;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TPA_Etap_1.Reflection.Model;
 
 namespace ViewModel.ViewItems
@@ -11,7 +8,7 @@ namespace ViewModel.ViewItems
     {
         private AssemblyMetadata _assembly;
 
-        public AssemblyMetadataView(AssemblyMetadata assembly)
+        public AssemblyMetadataView(Logger log, AssemblyMetadata assembly) : base(log)
         {
             _assembly = assembly;
         }
@@ -21,9 +18,10 @@ namespace ViewModel.ViewItems
 
         public override void LoadChildren()
         {
+            base.LoadChildren();
             Children.Clear();
             foreach (var child in _assembly.m_Namespaces)
-                Children.Add(new NamespaceMetadataView(child));
+                Children.Add(new NamespaceMetadataView(Log, child));
         }
         public override string ToString()
         {
