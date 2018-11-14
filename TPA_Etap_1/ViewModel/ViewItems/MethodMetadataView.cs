@@ -32,11 +32,11 @@ namespace ViewModel.ViewItems
 
         public override string ToString()
         {
-          /*  if (_method.m_ReturnType != null)
+            if (_method.m_ReturnType != null)
             {
                 return "Method: " + _method.m_ReturnType.Name + " " + _method.Name;
             }
-            else */
+            else 
                 return "Method: " + _method.Name;
 ;
         }

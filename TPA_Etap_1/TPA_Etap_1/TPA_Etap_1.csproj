@@ -53,6 +53,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GUI\GUI.csproj">
+      <Project>{D55F0BD5-06EB-4011-991C-EDD91A5273AD}</Project>
+      <Name>GUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Loging\Loging.csproj">
       <Project>{2e65285c-ed8d-4b51-ab66-f4b9e0062290}</Project>
       <Name>Loging</Name>
