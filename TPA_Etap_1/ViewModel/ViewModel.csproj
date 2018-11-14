@@ -66,5 +66,11 @@
     <Compile Include="ViewItems\PropertyMetadataView.cs" />
     <Compile Include="ViewItems\TypeMetadataView.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Loging\Loging.csproj">
+      <Project>{2e65285c-ed8d-4b51-ab66-f4b9e0062290}</Project>
+      <Name>Loging</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

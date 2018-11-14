@@ -97,6 +97,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Loging\Loging.csproj">
+      <Project>{2e65285c-ed8d-4b51-ab66-f4b9e0062290}</Project>
+      <Name>Loging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ViewModel\ViewModel.csproj">
       <Project>{F6D78536-2603-4666-9AAC-209C2B46A73A}</Project>
       <Name>ViewModel</Name>

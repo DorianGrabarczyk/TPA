@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Loging;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TPA_Etap_1.Reflection.Model;
-using ViewModel.ViewItems;
 
 namespace ViewModel.ViewItems
 {
@@ -13,7 +9,7 @@ namespace ViewModel.ViewItems
     {
         private TypeMetadata _typeMetaData;
 
-        public TypeMetadataView(TypeMetadata typeMetadata)
+        public TypeMetadataView(Logger log, TypeMetadata typeMetadata) : base(log)
         {
             _typeMetaData = typeMetadata;
         }
@@ -24,11 +20,11 @@ namespace ViewModel.ViewItems
 
         public override void LoadChildren()
         {
+            base.LoadChildren();
             Children.Clear();
-
-            base.Children.Add(new ConstructorsView(_typeMetaData.Constructors));
-            Children.Add(new MethodsMetadataView(_typeMetaData.Methods));
-            Children.Add(new PropertiesMetadataView(_typeMetaData.Properties));
+            base.Children.Add(new ConstructorsView(Log, _typeMetaData.Constructors));
+            Children.Add(new MethodsMetadataView(Log, _typeMetaData.Methods));
+            Children.Add(new PropertiesMetadataView(Log, _typeMetaData.Properties));
         }
 
         public override string ToString()

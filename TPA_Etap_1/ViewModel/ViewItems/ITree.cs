@@ -1,22 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Loging;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ViewModel.ViewItems
 {
     public abstract class ITree
     {
-        public ITree()
+        public ITree(Logger log)
         {
+            Log = log;
             Children = new ObservableCollection<ITree>();
             Children.Add(null);
             isExpanded = false;
         }
+
         public abstract string Name { get; }
         public ObservableCollection<ITree> Children { get; set; }
+
+        internal Logger Log;
 
         private bool isExpanded;
         public bool IsExpanded
@@ -36,6 +36,9 @@ namespace ViewModel.ViewItems
         }
         public virtual bool Expandable => Children?.Count > 0;
 
-        public abstract void LoadChildren();
+        public virtual void LoadChildren()
+        {
+            Log.Log(LogEnum.Information, Name + "'s children were loaded.");
+        }
     }
 }

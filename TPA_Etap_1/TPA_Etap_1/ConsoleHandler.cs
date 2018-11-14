@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Loging;
+using System;
 using ViewModel;
 using ViewModel.ViewItems;
 
@@ -11,6 +8,13 @@ namespace TPA_Etap_1
     public class ConsoleHandler : IDisplayHandler
     {
         private Reflector reflector = new Reflector();
+        private Logger Log;
+
+        public ConsoleHandler(Logger log)
+        {
+            Log = log;
+        }
+
         public void DisplayMenu()
         {
             var selectedFile = SelectFile();
@@ -32,7 +36,7 @@ namespace TPA_Etap_1
 
         public void DisplayTree()
         {
-            AssemblyMetadataView rootItem = new AssemblyMetadataView(reflector.AssemblyModel);
+            AssemblyMetadataView rootItem = new AssemblyMetadataView(Log, reflector.AssemblyModel);
             rootItem.LoadChildren();
             Console.WriteLine(rootItem.Name);
             foreach (var a in rootItem.Children)
