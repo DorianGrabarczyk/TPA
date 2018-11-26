@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IGetterFilePath.cs" />
     <Compile Include="Reflector.cs" />
     <Compile Include="Model\AbstractENum.cs" />
     <Compile Include="Model\AccessLevel.cs" />
@@ -55,6 +56,8 @@
     <Compile Include="Model\TypeMetadata.cs" />
     <Compile Include="Model\VirtualEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MVVM\RelayCommand.cs" />
+    <Compile Include="ViewContext.cs" />
     <Compile Include="ViewItems\AssemblyMetadataView.cs" />
     <Compile Include="ViewItems\ConstructorsView.cs" />
     <Compile Include="ViewItems\MethodMetadataView.cs" />

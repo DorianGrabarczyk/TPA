@@ -6,9 +6,9 @@ namespace TPA_Etap_1
     {
         static void Main(string[] args)
         {
-            Logger Log = new Logger("../../../Log.txt");
+            //Logger Log = new Logger("../../../Log.txt");
 
-            IDisplayHandler displayHandler = new ConsoleHandler(Log);
+            IDisplayHandler displayHandler = new ConsoleHandler();
             displayHandler.DisplayMenu();
         }
     }

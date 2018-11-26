@@ -17,22 +17,23 @@ namespace TPA_Etap_1
         private int depth;
         private List<CommandTreeItems> loadedChildren = new List<CommandTreeItems>();
 
-        public ConsoleHandler(Logger log)
+        public ConsoleHandler()
         {
-            Log = log;
-            _viewContext = new ViewContext(log);
+            _viewContext = new ViewContext()
+            {
+                PathGetter = new CommandLineFilePathGetter()
+            };
         }
 
         public void DisplayMenu()
         {
             string choice = "";
-            var selectedFile = SelectFile();
-            OpenFile(selectedFile);
-            AssemblyMetadataView rootItem = new AssemblyMetadataView(Log, reflector.AssemblyModel);
-            _viewContext.HierarchicalAreas.Add(rootItem);
+            _viewContext.Path = _viewContext.PathGetter.getFilePath();
+            _viewContext.TreeViewLoaded();
             loadedChildren.Add(new CommandTreeItems(0, _viewContext.HierarchicalAreas[0]));
             Console.Clear();
-            do {
+            do
+            {
                 Console.WriteLine("Informations:\n" +
                                   "w to expand tree\n" +
                                   "c to compress one level\n" +
@@ -53,16 +54,20 @@ namespace TPA_Etap_1
                     Console.ReadKey();
                 }
                 if (choice == "ch")
-                    OpenFile(SelectFile());
+                {
+                    _viewContext.Path = _viewContext.PathGetter.getFilePath();
+                    _viewContext.TreeViewLoaded();
+                    loadedChildren.Add(new CommandTreeItems(0, _viewContext.HierarchicalAreas[0]));
+                }
                 if (choice == "exit")
-                    return ;
+                    return;
                 choice = "";
                 Console.Clear();
             }
             while (true);
-            
+
         }
-            
+
         public string SelectFile()
         {
             Console.WriteLine("Select File");
@@ -75,13 +80,13 @@ namespace TPA_Etap_1
             reflector.Reflect("../../../" + fileName);
         }
 
-        public void DisplayTree(ObservableCollection<ITree> items , int currentDepth)
+        public void DisplayTree(ObservableCollection<ITree> items, int currentDepth)
         {
-           // AssemblyMetadataView rootItem = new AssemblyMetadataView(Log, reflector.AssemblyModel);
-           // rootItem.LoadChildren();
-           // Console.WriteLine(rootItem.Name);
+            // AssemblyMetadataView rootItem = new AssemblyMetadataView(Log, reflector.AssemblyModel);
+            // rootItem.LoadChildren();
+            // Console.WriteLine(rootItem.Name);
             //Console.Clear();
-            foreach(var item in items)
+            foreach (var item in items)
             {
                 if (item != null)
                 {
@@ -92,7 +97,7 @@ namespace TPA_Etap_1
                     }
                 }
 
-            }           
+            }
         }
         private string paragraphs(int depth)
         {
@@ -105,7 +110,7 @@ namespace TPA_Etap_1
         {
             List<ITree> toAdd = new List<ITree>();
 
-            foreach(var item in loadedChildren)
+            foreach (var item in loadedChildren)
             {
                 if (item._itree != null)
                 {
@@ -123,7 +128,7 @@ namespace TPA_Etap_1
                 }
 
             }
-            foreach(var ob in toAdd)
+            foreach (var ob in toAdd)
             {
                 loadedChildren.Add(new CommandTreeItems((depth + 1), ob));
                 Log.Log(LogEnum.Information, "Element " + ob.Name + " was added.");

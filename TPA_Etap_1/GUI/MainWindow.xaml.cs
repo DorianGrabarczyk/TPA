@@ -23,11 +23,7 @@ namespace GUI
     {
         public MainWindow()
         {
-            Logger Log = new Logger("../../../Log.txt");
-            Log.Log(LogEnum.Information, "Program is starting.");
-
-            InitializeComponent();
-            DataContext = new ViewContext(Log);
+            InitializeComponent();          
         }
     }
 }
