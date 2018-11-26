@@ -7,7 +7,7 @@ using System.Windows.Input;
 using ViewModel;
 using ViewModel.ViewItems;
 
-namespace GUI
+namespace ViewModel
 {
     public class ViewContext : INotifyPropertyChanged
     {
@@ -25,15 +25,14 @@ namespace GUI
 
         private Logger _log;
         private string _path;
-        private Visibility _visibility;
 
         #endregion
 
         #region Constructors
 
-        public ViewContext(Logger log)
+        public ViewContext()
         {
-            _log = log;
+            _log = new Logger("../../../Log.txt");
             Browse_Bttn = new RelayCommand(Browse);
             HierarchicalAreas = new ObservableCollection<ITree>();
         }
@@ -47,46 +46,16 @@ namespace GUI
         public string Path
         {
             get { return _path; }
-            set { _path = value; }
-        }
-        public Visibility ChangeControlVisibility
-        {
-            get { return _visibility; }
             set
             {
-                _visibility = value;
+                _path = value;
+                RaisePropertyChanged(nameof(Path));
             }
         }
         public ICommand Browse_Bttn { get; }
         public ICommand Button { get; }
 
-        public void Browse()
-        {
-            OpenFileDialog text = new OpenFileDialog()
-            {
-                Filter = "Dynamic Library File(*.dll)| *.dll"
-            };
-            text.ShowDialog();
-
-            if (text.FileName.Length == 0)
-            {
-                MessageBox.Show("No file was selected.");
-                _log.Log(LogEnum.Error, "No file was selected.");
-            }
-            else
-            {
-                _path = text.FileName;
-                _log.Log(LogEnum.Information, "A file was chosen.");
-                _visibility = Visibility.Visible;
-                RaisePropertyChanged("ChangeControlVisibility");
-                RaisePropertyChanged("Path");
-
-                if (_path.Substring(_path.Length - 4) == ".dll")
-                {
-                    TreeViewLoaded();
-                }
-            }
-        }
+        public IGetterFilePath PathGetter {get;set;}
 
         public void TreeViewLoaded()
         {
@@ -95,6 +64,19 @@ namespace GUI
             AssemblyMetadataView rootItem = new AssemblyMetadataView(_log, reflector.AssemblyModel);
             rootItem.LoadChildren();
             HierarchicalAreas.Add(rootItem);
+        }
+        public void Browse()
+        {
+            _log.Log(LogEnum.Information, "Loading file path");
+            string _path = PathGetter.getFilePath();
+            if (_path.Substring(_path.Length - 4) == ".dll")
+            {
+                Path = _path;
+                RaisePropertyChanged("Path");
+                TreeViewLoaded();
+            }
+
+
         }
 
         #endregion
