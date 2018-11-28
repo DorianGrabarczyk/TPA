@@ -9,19 +9,29 @@ using ViewModel;
 
 namespace GUI
 {
-    public class GUIFileGetter : IGetterFilePath
+    public class GUIFileGetter : IFileManager
     {
         public string getFilePath()
         {
-            OpenFileDialog text = new OpenFileDialog()
-            {
-                Filter = "Dynamic Library File(*.dll)| *.dll"
-            };
+            OpenFileDialog text = new OpenFileDialog();
             text.ShowDialog();
             if (text.FileName.Length == 0)
                 MessageBox.Show("Error", "File not found", MessageBoxButton.OK);
 
             return text.FileName;
+        }
+
+        public string getTargetFilePath()
+        {
+            string path = null;
+            SaveFileDialog text = new SaveFileDialog();
+            text.ShowDialog();
+            if(text.ShowDialog() == true)
+            {
+                path = text.FileName;
+
+            }
+            return path;
         }
     }
 }

@@ -44,9 +44,6 @@ namespace Tests
             Types = NamespaceChildren[0].Children;
 
             foreach (var item in Types) item.LoadChildren();
-
-            Methods = Types[1].Children;
-            Properties = Types[2].Children;
         }
 
         [TestMethod]
@@ -60,9 +57,8 @@ namespace Tests
         [TestMethod]
         public void MethodsTest()
         {
-            Assert.AreEqual(8, Methods.Count);
-
-            List<string> names = Methods.Select(x => x.Name).ToList();
+            Assert.AreEqual(11, Types.Count);
+            List<string> names = Types.Select(x => x.Name).ToList();
 
             Assert.IsTrue(names.Contains("Method: ServiceB get_ServiceB"));
             Assert.IsTrue(names.Contains("Method: Void set_ServiceB"));
@@ -77,7 +73,7 @@ namespace Tests
         [TestMethod]
         public void ReturnMethodTypeTest()
         {
-            ITree Method = Methods.Where(x => x.Name == "Method: ServiceB get_ServiceB").First();
+            ITree Method = Types.Where(x => x.Name == "Method: ServiceB get_ServiceB").First();
             Method.LoadChildren();
 
             ITree Type = Method.Children.Where(x => x.Name == "Type : ServiceB").First();
@@ -88,7 +84,9 @@ namespace Tests
         [TestMethod]
         public void ParametersMethodTest()
         {
-            ITree Method = Methods.Where(x => x.Name == "Method: ServiceB get_ServiceB").First();
+
+            ITree Method = Types.Where(x => x.Name == "Method: ServiceB get_ServiceB").First();
+
 
             Method.LoadChildren();
             ITree Parameter = Method.Children[0];
@@ -99,9 +97,8 @@ namespace Tests
         [TestMethod]
         public void PropertiesTest()
         {
-            Assert.AreEqual(2, Properties.Count);
-
-            List<string> Names = Properties.Select(x => x.Name).ToList();
+            Assert.AreEqual(11, Types.Count);
+            List<string> Names = Types.Select(x => x.Name).ToList();
             Assert.IsTrue(Names.Contains("Property: ServiceB"));
         }
     }

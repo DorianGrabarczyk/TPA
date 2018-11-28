@@ -24,9 +24,24 @@ namespace ViewModel.ViewItems
         {
             base.LoadChildren();
             Children.Clear();
-            foreach (var child in _method.m_Parameters)
-                Children.Add(new ParameterMetadataView(Log, child));
-            base.Children.Add(new TypeMetadataView(Log, _method.m_ReturnType));
+            if (_method.m_GenericArguments !=null)
+            {
+                foreach(var argument in _method.m_GenericArguments)
+                {
+                    Children.Add(new TypeMetadataView(Log, argument));
+                }
+            }
+            if (_method.m_Parameters != null)
+            {
+                foreach (var parameter in _method.m_Parameters)
+                {
+                    Children.Add(new ParameterMetadataView(Log,parameter));
+                }
+            }
+            if (_method.m_ReturnType !=null)
+            {
+                Children.Add(new TypeMetadataView(Log, _method.m_ReturnType));  
+            }
 
         }
 

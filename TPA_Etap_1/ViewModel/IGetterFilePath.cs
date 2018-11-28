@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ViewModel
 {
-    public interface IGetterFilePath
+    public interface IFileManager
     {
         string getFilePath();
+
+        string getTargetFilePath();
     }
 }

@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{84A027EA-AB01-4586-82A1-AE0FC37191A2}</ProjectGuid>
+    <ProjectGuid>{27EB8D7A-A6E8-40C0-9C5E-3A51EA09F110}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests</RootNamespace>
-    <AssemblyName>Tests</AssemblyName>
+    <RootNamespace>XMLTests</RootNamespace>
+    <AssemblyName>XMLTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -49,27 +49,27 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModelTests.cs" />
+    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataSerializer\DataSerializer.csproj">
+      <Project>{488213AC-8423-496B-88C2-92ABDE833CE9}</Project>
+      <Name>DataSerializer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Loging\Loging.csproj">
-      <Project>{2e65285c-ed8d-4b51-ab66-f4b9e0062290}</Project>
+      <Project>{2E65285C-ED8D-4B51-AB66-F4B9E0062290}</Project>
       <Name>Loging</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{74BA2C41-7D6A-428E-9977-0A902CF79E80}</Project>
       <Name>Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TPA_Etap_1\TPA_Etap_1.csproj">
-      <Project>{e97bb458-ab67-4adf-b7bc-0034fa565357}</Project>
-      <Name>TPA_Etap_1</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ViewModel\ViewModel.csproj">
-      <Project>{f6d78536-2603-4666-9aac-209c2b46a73a}</Project>
+      <Project>{F6D78536-2603-4666-9AAC-209C2B46A73A}</Project>
       <Name>ViewModel</Name>
     </ProjectReference>
   </ItemGroup>

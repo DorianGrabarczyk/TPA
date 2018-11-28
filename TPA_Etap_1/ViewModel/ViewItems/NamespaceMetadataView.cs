@@ -4,7 +4,7 @@ using TPA_Etap_1.Reflection.Model;
 
 namespace ViewModel.ViewItems
 {
-    public class NamespaceMetadataView:ITree
+    public class NamespaceMetadataView : ITree
     {
         private NamespaceMetadata _namespaceMetadata;
 
@@ -20,12 +20,24 @@ namespace ViewModel.ViewItems
         {
             base.LoadChildren();
             Children.Clear();
-            foreach (var child in _namespaceMetadata.m_Types)
-                Children.Add(new TypeMetadataView(Log, child));
+            if (_namespaceMetadata.m_Types != null)
+                foreach (var child in _namespaceMetadata.m_Types)
+                {
+                    if (TypeMetadata.m_typesMetadata.ContainsKey(child.m_typeName))
+                    {
+                        Children.Add(new TypeMetadataView(Log, TypeMetadata.m_typesMetadata[child.m_typeName]));
+                    }
+                    else
+                    {
+                        Children.Add(new TypeMetadataView(Log, child));
+                    }
+                }
+
+
         }
         public override string ToString()
         {
-            return "Namespace : " + _namespaceMetadata.Name;
+            return "Namespace : " + _namespaceMetadata.m_NamespaceName;
         }
 
 
