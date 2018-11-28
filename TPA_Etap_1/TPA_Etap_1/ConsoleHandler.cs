@@ -75,11 +75,6 @@ namespace TPA_Etap_1
 
         }
 
-        public void OpenFile(string fileName)
-        {
-            reflector.Reflect("../../../" + fileName);
-        }
-
         public void DisplayTree(ObservableCollection<ITree> items, int currentDepth)
         {
             // AssemblyMetadataView rootItem = new AssemblyMetadataView(Log, reflector.AssemblyModel);
@@ -131,11 +126,12 @@ namespace TPA_Etap_1
             foreach (var ob in toAdd)
             {
                 loadedChildren.Add(new CommandTreeItems((depth + 1), ob));
+                Log.Log(LogEnum.Information, "Element " + ob.Name + " was added.");
             }
             depth++;
-
-
+            Log.Log(LogEnum.Information, "Expanded to depth " + depth);
         }
+
         public void compressTree()
         {
             if (depth > 0)
@@ -151,7 +147,9 @@ namespace TPA_Etap_1
 
                 }
                 depth--;
+                Log.Log(LogEnum.Information, "Tree compressed to depth " + depth);
             }
+            else Log.Log(LogEnum.Warning, "Tree cannot be compressed further.");
         }
 
 
