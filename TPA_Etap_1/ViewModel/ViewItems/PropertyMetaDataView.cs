@@ -19,7 +19,13 @@ namespace ViewModel.ViewItems
         {
             base.LoadChildren();
             Children.Clear();
-            Children.Add(new TypeMetadataView(Log, _property.m_TypeMetadata))    ;
+            if (_property !=null)
+            {
+                if (TypeMetadata.m_typesMetadata.ContainsKey(_property.m_TypeMetadata.Name))
+                    Children.Add(new TypeMetadataView(base.Log, TypeMetadata.m_typesMetadata[_property.m_TypeMetadata.Name]));
+                else
+                    Children.Add(new TypeMetadataView(base.Log, _property.m_TypeMetadata));
+            }
         }
 
         public override string ToString()

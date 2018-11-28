@@ -4,7 +4,7 @@ using TPA_Etap_1.Reflection.Model;
 
 namespace ViewModel.ViewItems
 {
-    public class AssemblyMetadataView:ITree
+    public class AssemblyMetadataView : ITree
     {
         private AssemblyMetadata _assembly;
 
@@ -19,9 +19,12 @@ namespace ViewModel.ViewItems
         public override void LoadChildren()
         {
             base.LoadChildren();
+            var namespaceList = _assembly.m_Namespaces.ToList();
             Children.Clear();
+            //if (namespaceList != null)
             foreach (var child in _assembly.m_Namespaces)
-                base.Children.Add(new NamespaceMetadataView(Log, child));
+                if (child != null)
+                    Children.Add(new NamespaceMetadataView(Log, child));
         }
         public override string ToString()
         {

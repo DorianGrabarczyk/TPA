@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F6D78536-2603-4666-9AAC-209C2B46A73A}</ProjectGuid>
+    <ProjectGuid>{488213AC-8423-496B-88C2-92ABDE833CE9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ViewModel</RootNamespace>
-    <AssemblyName>ViewModel</AssemblyName>
+    <RootNamespace>DataSerializer</RootNamespace>
+    <AssemblyName>DataSerializer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,48 +32,28 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IGetterFilePath.cs" />
-    <Compile Include="Reflector.cs" />
+    <Compile Include="ISerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MVVM\RelayCommand.cs" />
-    <Compile Include="ViewContext.cs" />
-    <Compile Include="ViewItems\AssemblyMetadataView.cs" />
-    <Compile Include="ViewItems\ConstructorsView.cs" />
-    <Compile Include="ViewItems\MethodMetadataView.cs" />
-    <Compile Include="ViewItems\MethodsMetadataView.cs" />
-    <Compile Include="ViewItems\NamespaceMetadataView.cs" />
-    <Compile Include="ViewItems\ITree.cs" />
-    <Compile Include="ViewItems\ParameterMetadataView.cs" />
-    <Compile Include="ViewItems\PropertiesMetadataView.cs" />
-    <Compile Include="ViewItems\PropertyMetadataView.cs" />
-    <Compile Include="ViewItems\TypeMetadataView.cs" />
+    <Compile Include="XMLSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataSerializer\DataSerializer.csproj">
-      <Project>{488213ac-8423-496b-88c2-92abde833ce9}</Project>
-      <Name>DataSerializer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Loging\Loging.csproj">
-      <Project>{2e65285c-ed8d-4b51-ab66-f4b9e0062290}</Project>
-      <Name>Loging</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{74ba2c41-7d6a-428e-9977-0a902cf79e80}</Project>
       <Name>Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

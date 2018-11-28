@@ -1,0 +1,6 @@
+C:\Users\Dorian\Desktop\TpaGit\TPA\TPA_Etap_1\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\Dorian\Desktop\TpaGit\TPA\TPA_Etap_1\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Dorian\Desktop\TpaGit\TPA\TPA_Etap_1\Model\bin\Debug\Model.dll
+C:\Users\Dorian\Desktop\TpaGit\TPA\TPA_Etap_1\Model\bin\Debug\Model.pdb
+C:\Users\Dorian\Desktop\TpaGit\TPA\TPA_Etap_1\Model\obj\Debug\Model.dll
+C:\Users\Dorian\Desktop\TpaGit\TPA\TPA_Etap_1\Model\obj\Debug\Model.pdb

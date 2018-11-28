@@ -8,9 +8,8 @@ namespace ViewModel.ViewItems
         public ITree(Logger log)
         {
             Log = log;
-            Children = new ObservableCollection<ITree>();
-            Children.Add(null);
-            isExpanded = false;
+            Children = new ObservableCollection<ITree> { null };
+            built = false;
         }
 
         public abstract string Name { get; }
@@ -19,6 +18,7 @@ namespace ViewModel.ViewItems
         internal Logger Log;
 
         private bool isExpanded;
+        private bool built;
         public bool IsExpanded
         {
             get
@@ -27,10 +27,12 @@ namespace ViewModel.ViewItems
             }
             set
             {
-                if (Expandable)
-                    isExpanded = value;
-                        if (isExpanded)
-                            LoadChildren();
+                isExpanded = value;
+                if (built)
+                    return;
+                Children.Clear();
+                LoadChildren();
+                built = true;
 
             }
         }

@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
+
 
 namespace TPA_Etap_1.Reflection.Model
 {
+    [DataContract(IsReference = true)]
     public class MethodMetadata
     {
 
@@ -19,11 +22,15 @@ namespace TPA_Etap_1.Reflection.Model
 
         #region private
         //vars
+        [DataMember]
         private string m_Name;
+        [DataMember]
         public IEnumerable<TypeMetadata> m_GenericArguments;
         private Tuple<AccessLevel, AbstractENum, StaticEnum, VirtualEnum> m_Modifiers;
+        [DataMember]
         public TypeMetadata m_ReturnType;
         private bool m_Extension;
+        [DataMember]
         public IEnumerable<ParameterMetadata> m_Parameters { get; set; }
         //constructor
         private MethodMetadata(MethodBase method)
@@ -73,6 +80,7 @@ namespace TPA_Etap_1.Reflection.Model
             return new Tuple<AccessLevel, AbstractENum, StaticEnum, VirtualEnum>(_access, _abstract, _static, _virtual);
         }
         #endregion
+        
         public string Name { get { return m_Name; } set { Name = m_Name; } }
     }
 }

@@ -1,11 +1,14 @@
-﻿using Loging;
+﻿using DataSerializer;
+using Loging;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using ViewModel;
+using System;
 using ViewModel.ViewItems;
+using TPA_Etap_1.Reflection.Model;
 
 namespace ViewModel
 {
@@ -23,8 +26,9 @@ namespace ViewModel
 
         #region Private
 
-        private Logger _log;
+        public Logger _log;
         private string _path;
+        public ISerializer<Object> serializer;
 
         #endregion
 
@@ -34,7 +38,35 @@ namespace ViewModel
         {
             _log = new Logger("../../../Log.txt");
             Browse_Bttn = new RelayCommand(Browse);
+            serializer = new XMLSerializer<Object>();
+            HierarchicalAreas = new ObservableCollection<ITree>();  
+            SerializeButton = new RelayCommand(async() => await Serialize());
+            DeserializeButton = new RelayCommand(async () => await Deserialize());
+            
+        }
+        public ViewContext(string path)
+        {
+            _log = new Logger("../../../Log2.txt");
+            Browse_Bttn = new RelayCommand(Browse);
+            serializer = new XMLSerializer<Object>();
             HierarchicalAreas = new ObservableCollection<ITree>();
+            SerializeButton = new RelayCommand(async () => await Serialize());
+            //DeserializeButton = new RelayCommand(async () => await Deserialize(path));
+            //Task.Run(async () => await Serialize(path));
+            Task.Run (async () => await Deserialize(path));            
+
+        }
+        public ViewContext(string path,int temp)
+        {
+            _log = new Logger("../../../Log1.txt");
+            
+            serializer = new XMLSerializer<Object>();
+            HierarchicalAreas = new ObservableCollection<ITree>();
+            SerializeButton = new RelayCommand(async () => await Serialize());
+            DeserializeButton = new RelayCommand(async () => await Deserialize());
+            Path = path;
+            TreeViewLoaded();
+
         }
 
 
@@ -54,8 +86,10 @@ namespace ViewModel
         }
         public ICommand Browse_Bttn { get; }
         public ICommand Button { get; }
+        public ICommand SerializeButton { get; }
+        public ICommand DeserializeButton { get; }
 
-        public IGetterFilePath PathGetter {get;set;}
+        public IFileManager PathGetter { get; set; }
 
         public void TreeViewLoaded()
         {
@@ -77,6 +111,55 @@ namespace ViewModel
             }
 
 
+        }
+        public async Task Serialize(string pathh = null)
+        {
+            _log.Log(LogEnum.Information,"Serializacja");
+            Reflector reflector = new Reflector();
+            reflector.Reflect(_path);
+            if(pathh == null)
+            {
+                pathh = PathGetter.getTargetFilePath();
+            }
+            try
+            {
+                await Task.Run(() => serializer.Serialize<AssemblyMetadata>(reflector.AssemblyModel,pathh));
+            }
+            catch(ArgumentException exception)
+            {
+                _log.Log(LogEnum.Error, exception.Message);
+            }
+
+        }
+        public async Task Deserialize(string path = null)
+        {
+            if(path == null)
+            {
+                path = PathGetter.getFilePath();
+            }
+            object assembly = null;
+
+
+            assembly = await Task.Run(() => serializer.Deserialize<AssemblyMetadata>(path));
+            if(assembly != null )
+            {
+                try
+                {
+                    HierarchicalAreas.Clear();
+                    AssemblyMetadataView temp = new AssemblyMetadataView(_log, (AssemblyMetadata)assembly);
+                    temp.LoadChildren();
+                    HierarchicalAreas.Add(temp);
+                    //TreeViewLoaded();
+                }
+                catch
+                {
+                    HierarchicalAreas.Clear();
+                    AssemblyMetadataView temp = new AssemblyMetadataView(_log, (AssemblyMetadata)assembly);
+                    temp.LoadChildren();
+                    HierarchicalAreas.Add(temp);
+                    //TreeViewLoaded();
+                }
+            }
         }
 
         #endregion

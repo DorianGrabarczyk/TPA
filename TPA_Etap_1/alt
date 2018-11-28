@@ -1,0 +1,815 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssemblyMetadata xmlns:i="http://www.w3.org/2001/XMLSchema-instance" z:Id="1" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" xmlns="http://schemas.datacontract.org/2004/07/TPA_Etap_1.Reflection.Model">
+	<AssemblyName z:Id="2">
+		<NamespaceMetadata z:Id="3">
+			<NamespaceName z:Id="4">TestDLL</NamespaceName>
+			<Types z:Id="5">
+				<TypeMetadata z:Id="6">
+					<Name z:Id="7">ServiceA</Name>
+					<m_Attributes xmlns:d6p1="http://schemas.datacontract.org/2004/07/System" z:Id="8" />
+					<m_BaseType i:nil="true" />
+					<m_Constructors z:Id="9">
+						<MethodMetadata z:Id="10">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="11">.ctor</m_Name>
+							<m_Parameters z:Id="12" />
+							<m_ReturnType i:nil="true" />
+						</MethodMetadata>
+					</m_Constructors>
+					<m_DeclaringType i:nil="true" />
+					<m_GenericArguments i:nil="true" />
+					<m_ImplementedInterfaces z:Id="13" />
+					<m_Methods z:Id="14">
+						<MethodMetadata z:Id="15">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="16">get_ServiceB</m_Name>
+							<m_Parameters z:Id="17" />
+							<m_ReturnType z:Id="18">
+								<Name z:Id="19">ServiceB</Name>
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Id="20">TestDLL</m_NamespaceName>
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="19" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="21">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="22">set_ServiceB</m_Name>
+							<m_Parameters z:Id="23">
+								<ParameterMetadata z:Id="24">
+									<m_Name z:Id="25">value</m_Name>
+									<m_TypeMetadata z:Id="26">
+										<Name z:Ref="19" i:nil="true" />
+										<m_Attributes xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_BaseType i:nil="true" />
+										<m_Constructors i:nil="true" />
+										<m_DeclaringType i:nil="true" />
+										<m_GenericArguments i:nil="true" />
+										<m_ImplementedInterfaces i:nil="true" />
+										<m_Methods i:nil="true" />
+										<m_Modifiers xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_NamespaceName z:Ref="20" i:nil="true" />
+										<m_NestedTypes i:nil="true" />
+										<m_Properties i:nil="true" />
+										<m_TypeKind>EnumType</m_TypeKind>
+										<m_typeName z:Ref="19" i:nil="true" />
+									</m_TypeMetadata>
+								</ParameterMetadata>
+							</m_Parameters>
+							<m_ReturnType z:Id="27">
+								<Name z:Id="28">Void</Name>
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Id="29">System</m_NamespaceName>
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="28" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="30">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="31">get_TestNumber</m_Name>
+							<m_Parameters z:Id="32" />
+							<m_ReturnType z:Id="33">
+								<Name z:Id="34">Int32</Name>
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Id="35">System</m_NamespaceName>
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="34" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="36">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="37">set_TestNumber</m_Name>
+							<m_Parameters z:Id="38">
+								<ParameterMetadata z:Id="39">
+									<m_Name z:Id="40">value</m_Name>
+									<m_TypeMetadata z:Id="41">
+										<Name z:Ref="34" i:nil="true" />
+										<m_Attributes xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_BaseType i:nil="true" />
+										<m_Constructors i:nil="true" />
+										<m_DeclaringType i:nil="true" />
+										<m_GenericArguments i:nil="true" />
+										<m_ImplementedInterfaces i:nil="true" />
+										<m_Methods i:nil="true" />
+										<m_Modifiers xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_NamespaceName z:Ref="35" i:nil="true" />
+										<m_NestedTypes i:nil="true" />
+										<m_Properties i:nil="true" />
+										<m_TypeKind>EnumType</m_TypeKind>
+										<m_typeName z:Ref="34" i:nil="true" />
+									</m_TypeMetadata>
+								</ParameterMetadata>
+							</m_Parameters>
+							<m_ReturnType z:Id="42">
+								<Name z:Ref="28" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="29" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="28" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="43">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="44">ToString</m_Name>
+							<m_Parameters z:Id="45" />
+							<m_ReturnType z:Id="46">
+								<Name z:Id="47">String</Name>
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Id="48">System</m_NamespaceName>
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="47" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="49">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="50">Equals</m_Name>
+							<m_Parameters z:Id="51">
+								<ParameterMetadata z:Id="52">
+									<m_Name z:Id="53">obj</m_Name>
+									<m_TypeMetadata z:Id="54">
+										<Name z:Id="55">Object</Name>
+										<m_Attributes xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_BaseType i:nil="true" />
+										<m_Constructors i:nil="true" />
+										<m_DeclaringType i:nil="true" />
+										<m_GenericArguments i:nil="true" />
+										<m_ImplementedInterfaces i:nil="true" />
+										<m_Methods i:nil="true" />
+										<m_Modifiers xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_NamespaceName z:Id="56">System</m_NamespaceName>
+										<m_NestedTypes i:nil="true" />
+										<m_Properties i:nil="true" />
+										<m_TypeKind>EnumType</m_TypeKind>
+										<m_typeName z:Ref="55" i:nil="true" />
+									</m_TypeMetadata>
+								</ParameterMetadata>
+							</m_Parameters>
+							<m_ReturnType z:Id="57">
+								<Name z:Id="58">Boolean</Name>
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Id="59">System</m_NamespaceName>
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="58" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="60">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="61">GetHashCode</m_Name>
+							<m_Parameters z:Id="62" />
+							<m_ReturnType z:Id="63">
+								<Name z:Ref="34" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="35" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="34" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="64">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="65">GetType</m_Name>
+							<m_Parameters z:Id="66" />
+							<m_ReturnType z:Id="67">
+								<Name z:Id="68">Type</Name>
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Id="69">System</m_NamespaceName>
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="68" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+					</m_Methods>
+					<m_Modifiers xmlns:d6p1="http://schemas.datacontract.org/2004/07/System" z:Id="70">
+						<d6p1:m_Item1>IsPublic</d6p1:m_Item1>
+						<d6p1:m_Item2>NotSealed</d6p1:m_Item2>
+						<d6p1:m_Item3>NotAbstract</d6p1:m_Item3>
+					</m_Modifiers>
+					<m_NamespaceName i:nil="true" />
+					<m_NestedTypes z:Id="71" />
+					<m_Properties z:Id="72">
+						<PropertyMetadata z:Id="73">
+							<m_Name z:Id="74">ServiceB</m_Name>
+							<m_TypeMetadata z:Id="75">
+								<Name z:Ref="19" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="20" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="19" i:nil="true" />
+							</m_TypeMetadata>
+						</PropertyMetadata>
+						<PropertyMetadata z:Id="76">
+							<m_Name z:Id="77">TestNumber</m_Name>
+							<m_TypeMetadata z:Id="78">
+								<Name z:Ref="34" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="35" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="34" i:nil="true" />
+							</m_TypeMetadata>
+						</PropertyMetadata>
+					</m_Properties>
+					<m_TypeKind>ClassType</m_TypeKind>
+					<m_typeName z:Ref="7" i:nil="true" />
+				</TypeMetadata>
+				<TypeMetadata z:Id="79">
+					<Name z:Ref="19" i:nil="true" />
+					<m_Attributes xmlns:d6p1="http://schemas.datacontract.org/2004/07/System" z:Id="80" />
+					<m_BaseType i:nil="true" />
+					<m_Constructors z:Id="81">
+						<MethodMetadata z:Id="82">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="83">.ctor</m_Name>
+							<m_Parameters z:Id="84" />
+							<m_ReturnType i:nil="true" />
+						</MethodMetadata>
+					</m_Constructors>
+					<m_DeclaringType i:nil="true" />
+					<m_GenericArguments i:nil="true" />
+					<m_ImplementedInterfaces z:Id="85" />
+					<m_Methods z:Id="86">
+						<MethodMetadata z:Id="87">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="88">get_ServiceC</m_Name>
+							<m_Parameters z:Id="89" />
+							<m_ReturnType z:Id="90">
+								<Name z:Id="91">ServiceC</Name>
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Id="92">TestDLL</m_NamespaceName>
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="91" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="93">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="94">set_ServiceC</m_Name>
+							<m_Parameters z:Id="95">
+								<ParameterMetadata z:Id="96">
+									<m_Name z:Id="97">value</m_Name>
+									<m_TypeMetadata z:Id="98">
+										<Name z:Ref="91" i:nil="true" />
+										<m_Attributes xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_BaseType i:nil="true" />
+										<m_Constructors i:nil="true" />
+										<m_DeclaringType i:nil="true" />
+										<m_GenericArguments i:nil="true" />
+										<m_ImplementedInterfaces i:nil="true" />
+										<m_Methods i:nil="true" />
+										<m_Modifiers xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_NamespaceName z:Ref="92" i:nil="true" />
+										<m_NestedTypes i:nil="true" />
+										<m_Properties i:nil="true" />
+										<m_TypeKind>EnumType</m_TypeKind>
+										<m_typeName z:Ref="91" i:nil="true" />
+									</m_TypeMetadata>
+								</ParameterMetadata>
+							</m_Parameters>
+							<m_ReturnType z:Id="99">
+								<Name z:Ref="28" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="29" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="28" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="100">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="101">get_TestString</m_Name>
+							<m_Parameters z:Id="102" />
+							<m_ReturnType z:Id="103">
+								<Name z:Ref="47" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="48" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="47" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="104">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="105">set_TestString</m_Name>
+							<m_Parameters z:Id="106">
+								<ParameterMetadata z:Id="107">
+									<m_Name z:Id="108">value</m_Name>
+									<m_TypeMetadata z:Id="109">
+										<Name z:Ref="47" i:nil="true" />
+										<m_Attributes xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_BaseType i:nil="true" />
+										<m_Constructors i:nil="true" />
+										<m_DeclaringType i:nil="true" />
+										<m_GenericArguments i:nil="true" />
+										<m_ImplementedInterfaces i:nil="true" />
+										<m_Methods i:nil="true" />
+										<m_Modifiers xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_NamespaceName z:Ref="48" i:nil="true" />
+										<m_NestedTypes i:nil="true" />
+										<m_Properties i:nil="true" />
+										<m_TypeKind>EnumType</m_TypeKind>
+										<m_typeName z:Ref="47" i:nil="true" />
+									</m_TypeMetadata>
+								</ParameterMetadata>
+							</m_Parameters>
+							<m_ReturnType z:Id="110">
+								<Name z:Ref="28" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="29" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="28" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="111">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="112">ToString</m_Name>
+							<m_Parameters z:Id="113" />
+							<m_ReturnType z:Id="114">
+								<Name z:Ref="47" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="48" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="47" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="115">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="116">Equals</m_Name>
+							<m_Parameters z:Id="117">
+								<ParameterMetadata z:Id="118">
+									<m_Name z:Id="119">obj</m_Name>
+									<m_TypeMetadata z:Id="120">
+										<Name z:Ref="55" i:nil="true" />
+										<m_Attributes xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_BaseType i:nil="true" />
+										<m_Constructors i:nil="true" />
+										<m_DeclaringType i:nil="true" />
+										<m_GenericArguments i:nil="true" />
+										<m_ImplementedInterfaces i:nil="true" />
+										<m_Methods i:nil="true" />
+										<m_Modifiers xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_NamespaceName z:Ref="56" i:nil="true" />
+										<m_NestedTypes i:nil="true" />
+										<m_Properties i:nil="true" />
+										<m_TypeKind>EnumType</m_TypeKind>
+										<m_typeName z:Ref="55" i:nil="true" />
+									</m_TypeMetadata>
+								</ParameterMetadata>
+							</m_Parameters>
+							<m_ReturnType z:Id="121">
+								<Name z:Ref="58" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="59" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="58" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="122">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="123">GetHashCode</m_Name>
+							<m_Parameters z:Id="124" />
+							<m_ReturnType z:Id="125">
+								<Name z:Ref="34" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="35" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="34" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="126">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="127">GetType</m_Name>
+							<m_Parameters z:Id="128" />
+							<m_ReturnType z:Id="129">
+								<Name z:Ref="68" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="69" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="68" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+					</m_Methods>
+					<m_Modifiers xmlns:d6p1="http://schemas.datacontract.org/2004/07/System" z:Id="130">
+						<d6p1:m_Item1>IsPublic</d6p1:m_Item1>
+						<d6p1:m_Item2>NotSealed</d6p1:m_Item2>
+						<d6p1:m_Item3>NotAbstract</d6p1:m_Item3>
+					</m_Modifiers>
+					<m_NamespaceName i:nil="true" />
+					<m_NestedTypes z:Id="131" />
+					<m_Properties z:Id="132">
+						<PropertyMetadata z:Id="133">
+							<m_Name z:Id="134">ServiceC</m_Name>
+							<m_TypeMetadata z:Id="135">
+								<Name z:Ref="91" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="92" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="91" i:nil="true" />
+							</m_TypeMetadata>
+						</PropertyMetadata>
+						<PropertyMetadata z:Id="136">
+							<m_Name z:Id="137">TestString</m_Name>
+							<m_TypeMetadata z:Id="138">
+								<Name z:Ref="47" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="48" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="47" i:nil="true" />
+							</m_TypeMetadata>
+						</PropertyMetadata>
+					</m_Properties>
+					<m_TypeKind>ClassType</m_TypeKind>
+					<m_typeName z:Ref="19" i:nil="true" />
+				</TypeMetadata>
+				<TypeMetadata z:Id="139">
+					<Name z:Ref="91" i:nil="true" />
+					<m_Attributes xmlns:d6p1="http://schemas.datacontract.org/2004/07/System" z:Id="140" />
+					<m_BaseType i:nil="true" />
+					<m_Constructors z:Id="141">
+						<MethodMetadata z:Id="142">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="143">.ctor</m_Name>
+							<m_Parameters z:Id="144" />
+							<m_ReturnType i:nil="true" />
+						</MethodMetadata>
+					</m_Constructors>
+					<m_DeclaringType i:nil="true" />
+					<m_GenericArguments i:nil="true" />
+					<m_ImplementedInterfaces z:Id="145" />
+					<m_Methods z:Id="146">
+						<MethodMetadata z:Id="147">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="148">get_ServiceA</m_Name>
+							<m_Parameters z:Id="149" />
+							<m_ReturnType z:Id="150">
+								<Name z:Ref="7" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="4" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="7" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="151">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="152">set_ServiceA</m_Name>
+							<m_Parameters z:Id="153">
+								<ParameterMetadata z:Id="154">
+									<m_Name z:Id="155">value</m_Name>
+									<m_TypeMetadata z:Id="156">
+										<Name z:Ref="7" i:nil="true" />
+										<m_Attributes xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_BaseType i:nil="true" />
+										<m_Constructors i:nil="true" />
+										<m_DeclaringType i:nil="true" />
+										<m_GenericArguments i:nil="true" />
+										<m_ImplementedInterfaces i:nil="true" />
+										<m_Methods i:nil="true" />
+										<m_Modifiers xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_NamespaceName z:Ref="4" i:nil="true" />
+										<m_NestedTypes i:nil="true" />
+										<m_Properties i:nil="true" />
+										<m_TypeKind>EnumType</m_TypeKind>
+										<m_typeName z:Ref="7" i:nil="true" />
+									</m_TypeMetadata>
+								</ParameterMetadata>
+							</m_Parameters>
+							<m_ReturnType z:Id="157">
+								<Name z:Ref="28" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="29" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="28" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="158">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="159">ToString</m_Name>
+							<m_Parameters z:Id="160" />
+							<m_ReturnType z:Id="161">
+								<Name z:Ref="47" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="48" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="47" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="162">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="163">Equals</m_Name>
+							<m_Parameters z:Id="164">
+								<ParameterMetadata z:Id="165">
+									<m_Name z:Id="166">obj</m_Name>
+									<m_TypeMetadata z:Id="167">
+										<Name z:Ref="55" i:nil="true" />
+										<m_Attributes xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_BaseType i:nil="true" />
+										<m_Constructors i:nil="true" />
+										<m_DeclaringType i:nil="true" />
+										<m_GenericArguments i:nil="true" />
+										<m_ImplementedInterfaces i:nil="true" />
+										<m_Methods i:nil="true" />
+										<m_Modifiers xmlns:d11p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+										<m_NamespaceName z:Ref="56" i:nil="true" />
+										<m_NestedTypes i:nil="true" />
+										<m_Properties i:nil="true" />
+										<m_TypeKind>EnumType</m_TypeKind>
+										<m_typeName z:Ref="55" i:nil="true" />
+									</m_TypeMetadata>
+								</ParameterMetadata>
+							</m_Parameters>
+							<m_ReturnType z:Id="168">
+								<Name z:Ref="58" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="59" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="58" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="169">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="170">GetHashCode</m_Name>
+							<m_Parameters z:Id="171" />
+							<m_ReturnType z:Id="172">
+								<Name z:Ref="34" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="35" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="34" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+						<MethodMetadata z:Id="173">
+							<m_GenericArguments i:nil="true" />
+							<m_Name z:Id="174">GetType</m_Name>
+							<m_Parameters z:Id="175" />
+							<m_ReturnType z:Id="176">
+								<Name z:Ref="68" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="69" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="68" i:nil="true" />
+							</m_ReturnType>
+						</MethodMetadata>
+					</m_Methods>
+					<m_Modifiers xmlns:d6p1="http://schemas.datacontract.org/2004/07/System" z:Id="177">
+						<d6p1:m_Item1>IsPublic</d6p1:m_Item1>
+						<d6p1:m_Item2>NotSealed</d6p1:m_Item2>
+						<d6p1:m_Item3>NotAbstract</d6p1:m_Item3>
+					</m_Modifiers>
+					<m_NamespaceName i:nil="true" />
+					<m_NestedTypes z:Id="178" />
+					<m_Properties z:Id="179">
+						<PropertyMetadata z:Id="180">
+							<m_Name z:Id="181">ServiceA</m_Name>
+							<m_TypeMetadata z:Id="182">
+								<Name z:Ref="7" i:nil="true" />
+								<m_Attributes xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_BaseType i:nil="true" />
+								<m_Constructors i:nil="true" />
+								<m_DeclaringType i:nil="true" />
+								<m_GenericArguments i:nil="true" />
+								<m_ImplementedInterfaces i:nil="true" />
+								<m_Methods i:nil="true" />
+								<m_Modifiers xmlns:d9p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+								<m_NamespaceName z:Ref="4" i:nil="true" />
+								<m_NestedTypes i:nil="true" />
+								<m_Properties i:nil="true" />
+								<m_TypeKind>EnumType</m_TypeKind>
+								<m_typeName z:Ref="7" i:nil="true" />
+							</m_TypeMetadata>
+						</PropertyMetadata>
+					</m_Properties>
+					<m_TypeKind>ClassType</m_TypeKind>
+					<m_typeName z:Ref="91" i:nil="true" />
+				</TypeMetadata>
+			</Types>
+		</NamespaceMetadata>
+	</AssemblyName>
+	<m_Name z:Id="183">TestDLL.dll</m_Name>
+</AssemblyMetadata>

@@ -15,9 +15,25 @@
         </viewmodel:ViewContext>
     </Window.DataContext>
     <Grid Margin="10,10,0,0">
-        <Button Name="Browse" Margin="10,10,683,359" Command="{Binding Browse_Bttn}" Content="Browse"/>
-        <TextBox Text="{Binding Mode=OneWay, Path=Path, UpdateSourceTrigger=PropertyChanged}" Margin="104,10,10,359"/>
-        <TreeView Name="TreeView" Margin="10,55,10,10" ItemsSource="{Binding HierarchicalAreas}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="428*"/>
+            <ColumnDefinition Width="63*"/>
+            <ColumnDefinition Width="291*"/>
+        </Grid.ColumnDefinitions>
+        <Button Name="Browse" Margin="10,10,329,359" Command="{Binding Browse_Bttn}" Content="Browse"/>
+        <TextBox Text="{Binding Mode=OneWay, Path=Path, UpdateSourceTrigger=PropertyChanged}" Margin="104,10,237,359" Grid.ColumnSpan="3"/>
+        <Button Margin="176,10,10,359" Content="Serialize" Command="{Binding SerializeButton}" Grid.Column="2"></Button>
+        <Button Margin="60,10,119,360" Grid.Column="2" Content="Deserialize" Command="{Binding DeserializeButton}">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.201"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <TreeView Name="TreeView" Margin="10,55,10,10" ItemsSource="{Binding HierarchicalAreas}" Grid.ColumnSpan="3">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
                     <TextBlock Text="{Binding Path=Name}" Margin="0,0,4,0" />
