@@ -75,11 +75,6 @@ namespace TPA_Etap_1
 
         }
 
-        public void OpenFile(string fileName)
-        {
-            reflector.Reflect("../../../" + fileName);
-        }
-
         public void DisplayTree(ObservableCollection<ITree> items, int currentDepth)
         {
             // AssemblyMetadataView rootItem = new AssemblyMetadataView(Log, reflector.AssemblyModel);
