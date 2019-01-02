@@ -26,11 +26,7 @@ namespace GUI
             string path = null;
             SaveFileDialog text = new SaveFileDialog();
             text.ShowDialog();
-            if(text.ShowDialog() == true)
-            {
-                path = text.FileName;
-
-            }
+            path = text.FileName;
             return path;
         }
     }

@@ -7,22 +7,33 @@ using System.ComponentModel.Composition;
 using System.Runtime.Serialization;
 using System.Xml;
 using System.IO;
-using TPA_Etap_1.Reflection.Model;
+using System.ServiceModel;
 
 namespace DataSerializer
 {
     [Export(typeof(ISerializer<>))]
+    [ServiceContract(Name = "IRepostioryXML")]
     public class XMLSerializer<T> : ISerializer<T>
     {
         public T Deserialize<T>(string path)
         {
-            DataContractSerializer ser = new DataContractSerializer(typeof(T));
+            List<Type> lista = new List<Type>
+                {
+                typeof(System.FlagsAttribute),
+                typeof(System.Reflection.DefaultMemberAttribute),
+                typeof(System.AttributeUsageAttribute),
+                typeof(System.ObsoleteAttribute),
+                typeof(System.SerializableAttribute),
+                typeof(System.Runtime.Serialization.KnownTypeAttribute)
+                };
             T temp = default(T);
+            DataContractSerializer ser = new DataContractSerializer(typeof(T));
 
-            using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
+
+            using (var xmlreader = XmlReader.Create(path))
             {
                 // XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas { MaxDepth = int.MaxValue });
-                temp = (T)ser.ReadObject(fs);
+                temp = (T)ser.ReadObject(xmlreader);
             }
             return temp;
         }
@@ -45,8 +56,16 @@ namespace DataSerializer
                 //}
                 //ser.WriteObject(writer, data);
                 //writer.Close();
-
-                DataContractSerializerSettings DCsettings = new DataContractSerializerSettings{ PreserveObjectReferences = true };
+                List<Type> lista = new List<Type>
+                {
+                typeof(System.FlagsAttribute),
+                typeof(System.Reflection.DefaultMemberAttribute),
+                typeof(System.AttributeUsageAttribute),
+                typeof(System.ObsoleteAttribute),
+                typeof(System.SerializableAttribute),
+                typeof(System.Runtime.Serialization.KnownTypeAttribute)
+                };
+                DataContractSerializerSettings DCsettings = new DataContractSerializerSettings{ PreserveObjectReferences = true, KnownTypes = lista };
                 DataContractSerializer ser = new DataContractSerializer(typeof(T), DCsettings);
                 var XmlWriterSettings = new XmlWriterSettings()
                 {
@@ -59,7 +78,7 @@ namespace DataSerializer
                 {
                     ser.WriteObject(XmlWriter, data);
                 }
-                fs.Close();
+                
 
             }
         }

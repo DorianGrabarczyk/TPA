@@ -1,5 +1,5 @@
 ﻿
-namespace TPA_Etap_1.Reflection.Model
+namespace DataSerializer.DTO
 {
   public enum SealedEnum
   {

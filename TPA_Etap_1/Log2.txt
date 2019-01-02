@@ -1,0 +1,2 @@
+[ 02.01.2019 23:56:10 Information ]: Assembly: TestDLL.dll's children were loaded.
+[ 02.01.2019 23:56:10 Information ]: Assembly: TestDLL.dll's children were loaded.
