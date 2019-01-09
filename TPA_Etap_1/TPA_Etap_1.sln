@@ -19,9 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLTests", "XMLTests\XMLTests.csproj", "{27EB8D7A-A6E8-40C0-9C5E-3A51EA09F110}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEF", "ClassLibrary1\MEF.csproj", "{7BF9F1D2-649A-40C0-A42A-A120C1C997C2}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F7A3FFCD-B942-4AA0-9B64-8B3F8D255737}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEF", "MEF\MEF.csproj", "{D761287E-A58E-4CAB-AC40-1FE43641D116}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,10 +61,10 @@ Global
 		{27EB8D7A-A6E8-40C0-9C5E-3A51EA09F110}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27EB8D7A-A6E8-40C0-9C5E-3A51EA09F110}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27EB8D7A-A6E8-40C0-9C5E-3A51EA09F110}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7BF9F1D2-649A-40C0-A42A-A120C1C997C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BF9F1D2-649A-40C0-A42A-A120C1C997C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BF9F1D2-649A-40C0-A42A-A120C1C997C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BF9F1D2-649A-40C0-A42A-A120C1C997C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D761287E-A58E-4CAB-AC40-1FE43641D116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D761287E-A58E-4CAB-AC40-1FE43641D116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D761287E-A58E-4CAB-AC40-1FE43641D116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D761287E-A58E-4CAB-AC40-1FE43641D116}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
