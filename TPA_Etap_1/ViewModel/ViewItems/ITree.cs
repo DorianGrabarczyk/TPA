@@ -21,26 +21,22 @@ namespace ViewModel.ViewItems
         private bool built;
         public bool IsExpanded
         {
-            get
-            {
-                return isExpanded;
-            }
+            get => isExpanded;
             set
             {
                 isExpanded = value;
                 if (built)
                     return;
                 Children.Clear();
-                LoadChildren();
+                LoadChildren(Children);
                 built = true;
-
             }
         }
-        public virtual bool Expandable => Children?.Count > 0;
-
-        public virtual void LoadChildren()
+        public virtual void LoadChildren(ObservableCollection<ITree> children)
         {
             Log.Log(LogEnum.Information, Name + "'s children were loaded.");
         }
     }
 }
+
+     

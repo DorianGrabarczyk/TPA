@@ -50,9 +50,9 @@ namespace TPA_Etap_1.Reflection.Model
         }
 
         #region private
-        [DataMember]
+       
         public string m_Name { get; set; }
-        [DataMember]
+        
         public TypeMetadata m_TypeMetadata { get; set; }
         
         public PropertyMetadata(string propertyName, TypeMetadata propertyType)

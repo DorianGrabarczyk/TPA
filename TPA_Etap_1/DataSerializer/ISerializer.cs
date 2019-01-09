@@ -8,7 +8,7 @@ using System.ServiceModel;
 namespace DataSerializer
 {
     [ServiceContract(Name ="SerializerXML")]
-    public interface  ISerializer<T>
+    public interface  ISerializer
     {
         [OperationContract]
         T Deserialize<T>(string path);

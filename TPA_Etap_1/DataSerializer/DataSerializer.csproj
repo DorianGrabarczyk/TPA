@@ -55,6 +55,7 @@
     <Compile Include="DTO\BaseTypeMetadata.cs" />
     <Compile Include="DTO\SealedEnum.cs" />
     <Compile Include="DTO\StaticEnum.cs" />
+    <Compile Include="DTO\TypeKind.cs" />
     <Compile Include="DTO\VirtualEnum.cs" />
     <Compile Include="ISerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

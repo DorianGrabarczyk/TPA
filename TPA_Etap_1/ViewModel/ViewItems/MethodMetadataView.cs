@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TPA_Etap_1.Reflection.Model;
+using DataSerializer.DTO;
+using System.Collections.ObjectModel;
 
 namespace ViewModel.ViewItems
 {
@@ -13,17 +15,15 @@ namespace ViewModel.ViewItems
         private MethodMetadata _method;
 
         public override string Name => this.ToString();
-        public override bool Expandable => _method.m_Parameters?.Count() > 0 || _method.m_ReturnType != null;
 
         public MethodMetadataView(Logger log, MethodMetadata method) : base(log)
         {
             _method = method;
         }
 
-        public override void LoadChildren()
+        public override void LoadChildren(ObservableCollection<ITree> children)
         {
-            base.LoadChildren();
-            Children.Clear();
+
             if (_method.m_GenericArguments !=null)
             {
                 foreach(var argument in _method.m_GenericArguments)
@@ -47,13 +47,19 @@ namespace ViewModel.ViewItems
 
         public override string ToString()
         {
-            if (_method.m_ReturnType != null)
-            {
-                return "Method: " + _method.m_ReturnType.Name + " " + _method.Name;
-            }
-            else 
-                return "Method: " + _method.Name;
-;
+            String str = _method.m_Modifiers.Item1.ToString() + " "; //Access level
+            if (_method.m_Modifiers.Item2 == AbstractEnum.Abstract) // Abstract
+                str += AbstractEnum.Abstract.ToString() + " ";
+            if (_method.m_Modifiers.Item3 == StaticEnum.Static) //Static
+                str += StaticEnum.Static.ToString() + " ";
+            if (_method.m_Modifiers.Item4 == VirtualEnum.Virtual) // Virtual 
+                str += VirtualEnum.Virtual.ToString() + " ";
+            if (_method.m_ReturnType != null) // Returning type
+                str += _method.m_ReturnType.m_typeName + " "; // Name of method
+            str += _method.Name;
+            if (_method.m_Extension) // If extension method
+                str += " :Extension Method";
+            return str;
         }
     }
 }

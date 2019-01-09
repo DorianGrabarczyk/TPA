@@ -48,5 +48,7 @@ namespace DataSerializer.DTO
         [DataMember(Name = "Constructors")]
         public IEnumerable<BaseMethodMetadata> Constructors;
 
+        [DataMember(Name = "TypeKind")]
+        public TypeKind TypeKind;
     }
 }

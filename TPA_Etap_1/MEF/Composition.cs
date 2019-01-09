@@ -23,9 +23,12 @@ namespace Mef
 
            // string log = "..\\..\\..\\Loging\\bin\\Debug";
             List<DirectoryCatalog> directoryCatalogs = new List<DirectoryCatalog>();
-            DirectoryCatalog log = new DirectoryCatalog("..\\..\\..\\DataSerializer\\bin\\Debug");
+            
+
             if (Directory.Exists("..\\..\\..\\DataSerializer\\bin\\Debug"))
                 directoryCatalogs.Add(new DirectoryCatalog("..\\..\\..\\DataSerializer\\bin\\Debug"));
+            if (Directory.Exists("..\\..\\..\\Loging\\bin\\Debug"))
+                directoryCatalogs.Add(new DirectoryCatalog("..\\..\\..\\Loging\\bin\\Debug"));
             AggregateCatalog catalog = new AggregateCatalog(directoryCatalogs);
             CompositionContainer container = new CompositionContainer(catalog);
 

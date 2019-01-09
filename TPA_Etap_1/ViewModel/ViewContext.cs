@@ -31,10 +31,14 @@ namespace ViewModel
 
         #region Private
 
-        public Logger _log;
+        
         private string _path;
-        [ImportMany(typeof(ISerializer<Object>))]
-        public List<ISerializer<Object>> serializer { get; set; }
+        [ImportMany(typeof(ISerializer))]
+        public List<ISerializer> serializer { get; set; }
+        [Import(typeof(Logger))]
+        public Logger _log { get; set; }
+
+        public Reflector _reflector;
 
         #endregion
 
@@ -45,8 +49,8 @@ namespace ViewModel
             Composition Mef = new Composition();
             
             Mef.Compose(this);
-           
-            _log = new Logger("../../../Log2.txt");
+
+            //_log = log.FirstOrDefault();
             Browse_Bttn = new RelayCommand(Browse);
             //serializer = new XMLSerializer<Object>();
             HierarchicalAreas = new ObservableCollection<ITree>();  
@@ -54,30 +58,7 @@ namespace ViewModel
             DeserializeButton = new RelayCommand(async () => await Deserialize());
             
         }
-        public ViewContext(string path)
-        {
-            _log = new Logger("../../../Log2.txt");
-            Browse_Bttn = new RelayCommand(Browse);
-            //serializer = new XMLSerializer<Object>();
-            HierarchicalAreas = new ObservableCollection<ITree>();
-            SerializeButton = new RelayCommand(async () => await Serialize());
-            //DeserializeButton = new RelayCommand(async () => await Deserialize(path));
-            //Task.Run(async () => await Serialize(path));
-            Task.Run (async () => await Deserialize(path));            
 
-        }
-        public ViewContext(string path,int temp)
-        {
-            _log = new Logger("../../../Log1.txt");
-            
-            //serializer = new XMLSerializer<Object>();
-            HierarchicalAreas = new ObservableCollection<ITree>();
-            SerializeButton = new RelayCommand(async () => await Serialize());
-            DeserializeButton = new RelayCommand(async () => await Deserialize());
-            Path = path;
-            TreeViewLoaded();
-
-        }
 
 
         #endregion
@@ -98,16 +79,11 @@ namespace ViewModel
         public ICommand Button { get; }
         public ICommand SerializeButton { get; }
         public ICommand DeserializeButton { get; }
-        [ImportMany(typeof(Logger))]
-        public List<Logger> log { get; set; }
         public IFileManager PathGetter { get; set; }
 
-        public void TreeViewLoaded()
+        public void TreeViewLoaded(AssemblyMetadata AssemblyMetadata)
         {
-            Reflector reflector = new Reflector();
-            reflector.Reflect(_path);
-            AssemblyMetadataView rootItem = new AssemblyMetadataView(_log, reflector.AssemblyModel);
-            rootItem.LoadChildren();
+            ITree rootItem = new AssemblyMetadataView(_log, AssemblyMetadata);
             HierarchicalAreas.Add(rootItem);
         }
         public void Browse()
@@ -118,23 +94,19 @@ namespace ViewModel
             {
                 Path = _path;
                 RaisePropertyChanged("Path");
-                TreeViewLoaded();
+                _reflector = new Reflector();
+                _reflector.Reflect(Path);
+                TreeViewLoaded(_reflector.AssemblyModel);
             }
 
 
         }
         public async Task Serialize(string pathh = null)
         {
-            _log.Log(LogEnum.Information,"Serializacja");
-            Reflector reflector = new Reflector();
-            reflector.Reflect(_path);
-            if(pathh == null)
-            {
-                pathh = PathGetter.getTargetFilePath();
-            }
+            pathh = PathGetter.getTargetFilePath();
             try
             {
-                await Task.Run(() => serializer.FirstOrDefault()?.Serialize(reflector.AssemblyModel.MapUp(),pathh));
+                await Task.Run(() => serializer.FirstOrDefault()?.Serialize(_reflector.AssemblyModel.MapUp(),pathh));
             }
             catch(ArgumentException exception)
             {
@@ -148,29 +120,12 @@ namespace ViewModel
             {
                 path = PathGetter.getFilePath();
             }
-            object assembly = null;
+            
 
 
-            assembly = new AssemblyMetadata(await Task.Run(() => serializer.FirstOrDefault()?.Deserialize<BaseAssemblyMetadata>(path)));
-            if(assembly != null )
-            {
-                try
-                {
-                    HierarchicalAreas.Clear();
-                    AssemblyMetadataView temp = new AssemblyMetadataView(_log, (AssemblyMetadata)assembly);
-                    temp.LoadChildren();
-                    HierarchicalAreas.Add(temp);
-                    TreeViewLoaded();
-                }
-                catch
-                {
-                    HierarchicalAreas.Clear();
-                    AssemblyMetadataView temp = new AssemblyMetadataView(_log, (AssemblyMetadata)assembly);
-                    temp.LoadChildren();
-                    HierarchicalAreas.Add(temp);
-                    //TreeViewLoaded();
-                }
-            }
+           AssemblyMetadata assembly = new AssemblyMetadata(await Task.Run(() => serializer.FirstOrDefault()?.Deserialize<BaseAssemblyMetadata>(path)));
+            TreeViewLoaded(assembly);
+            
         }
 
         #endregion

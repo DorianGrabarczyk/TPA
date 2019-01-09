@@ -1,4 +1,5 @@
 ﻿using Loging;
+using System.Collections.ObjectModel;
 using TPA_Etap_1.Reflection.Model;
 
 namespace ViewModel.ViewItems
@@ -8,18 +9,19 @@ namespace ViewModel.ViewItems
         private ParameterMetadata _parameter;
 
         public override string Name => this.ToString();
-        public override bool Expandable => _parameter.m_TypeMetadata != null;
 
         public ParameterMetadataView(Logger log, ParameterMetadata parameter) : base(log)
         {
             _parameter = parameter;
         }
 
-        public override void LoadChildren()
+        public override void LoadChildren(ObservableCollection<ITree> children)
         {
-            base.LoadChildren();
-            Children.Clear();
-            base.Children.Add(new TypeMetadataView(Log, _parameter.m_TypeMetadata));
+            if(_parameter != null)
+            {
+                Children.Add(new TypeMetadataView(Log, _parameter.m_TypeMetadata));
+            }
+           
         }
 
         public override string ToString()

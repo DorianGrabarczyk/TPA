@@ -138,12 +138,22 @@ namespace TPA_Etap_1.Reflection.Model
             {
                 BaseTypeMetadata.TypeDictionary.Add(TypeMetadataDTO.TypeName, TypeMetadataDTO);
             }
+            TypeMetadataDTO.TypeKind = m_TypeKind;
             return TypeMetadataDTO;
         }
         public TypeMetadata(BaseTypeMetadata typeMetadata)
         {
             m_typeName = typeMetadata.TypeName;
             m_NamespaceName = typeMetadata.NamespaceName;
+
+            if (!BaseTypeMetadata.TypeDictionary.ContainsKey(m_typeName))
+            {
+                BaseTypeMetadata.TypeDictionary.Add(m_typeName, typeMetadata);
+            }
+            if (!m_typesMetadata.ContainsKey(m_typeName))
+            {
+                m_typesMetadata.Add(m_typeName, this);
+            }
 
             if (typeMetadata.BaseType != null)
             {
@@ -262,10 +272,7 @@ namespace TPA_Etap_1.Reflection.Model
                 m_Constructors = constructors;
             }
 
-            if (!m_typesMetadata.ContainsKey(m_typeName))
-            {
-                m_typesMetadata.Add(m_typeName, this);
-            }
+            m_TypeKind = typeMetadata.TypeKind;
         }
 
         #region constructors
@@ -292,18 +299,19 @@ namespace TPA_Etap_1.Reflection.Model
         #endregion
 
         #region API
-        internal enum TypeKind
+
+        public static TypeMetadata EmitReference(Type type)
         {
-            EnumType, StructType, InterfaceType, ClassType
+            if (!m_typesMetadata.ContainsKey(type.Name))
+            {
+                if (!m_typesMetadata.ContainsKey(type.Name))
+                {
+                    new TypeMetadata(type);
+                }
+            }
+            return m_typesMetadata[type.Name];
         }
-        internal static TypeMetadata EmitReference(Type type)
-        {
-            if (!type.IsGenericType)
-                return new TypeMetadata(type.Name, type.GetNamespace());
-            else
-                return new TypeMetadata(type.Name, type.GetNamespace(), EmitGenericArguments(type.GetGenericArguments()));
-        }
-        internal static IEnumerable<TypeMetadata> EmitGenericArguments(IEnumerable<Type> arguments)
+        public static IEnumerable<TypeMetadata> EmitGenericArguments(IEnumerable<Type> arguments)
         {
             return from Type _argument in arguments select EmitReference(_argument);
         }
@@ -311,33 +319,33 @@ namespace TPA_Etap_1.Reflection.Model
 
         #region private
         //vars
-        [DataMember]
+        
         public string m_typeName;
-        [DataMember]
+        
         public string m_NamespaceName;
-        [DataMember]
+       
         public TypeMetadata m_BaseType;
-        [DataMember]
+        
         public IEnumerable<TypeMetadata> m_GenericArguments;
-        [DataMember]
+        
         public Tuple<AccessLevel, SealedEnum, AbstractEnum> m_Modifiers;
-        [DataMember]
+        
         private TypeKind m_TypeKind;
-        [DataMember]
+
         public IEnumerable<Attribute> m_Attributes;
-        [DataMember]
+        
         public IEnumerable<TypeMetadata> m_ImplementedInterfaces;
-        [DataMember]
+       
         public IEnumerable<TypeMetadata> m_NestedTypes;
-        [DataMember]
+        
         public IEnumerable<PropertyMetadata> m_Properties;
-        [DataMember]
+        
         public TypeMetadata m_DeclaringType;
-        [DataMember]
+        
         public IEnumerable<MethodMetadata> m_Methods;
-        [DataMember]
+        
         public IEnumerable<MethodMetadata> m_Constructors;
-        [DataMember]
+        
         public static Dictionary<string, TypeMetadata> m_typesMetadata = new Dictionary<string, TypeMetadata>();
         //constructors
         private TypeMetadata(string typeName, string namespaceName)
@@ -345,12 +353,12 @@ namespace TPA_Etap_1.Reflection.Model
             m_typeName = typeName;
             m_NamespaceName = namespaceName;
         }
-        private TypeMetadata(string typeName, string namespaceName, IEnumerable<TypeMetadata> genericArguments) : this(typeName, namespaceName)
+        public TypeMetadata(string typeName, string namespaceName, IEnumerable<TypeMetadata> genericArguments) : this(typeName, namespaceName)
         {
             m_GenericArguments = genericArguments;
         }
         //methods
-        private TypeMetadata EmitDeclaringType(Type declaringType)
+        public TypeMetadata EmitDeclaringType(Type declaringType)
         {
             if (declaringType == null)
                 return null;
@@ -404,6 +412,6 @@ namespace TPA_Etap_1.Reflection.Model
         #endregion
 
         
-        public string Name { get { return m_typeName; } set { m_typeName = value; } }
+        
     }
 }

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLTests", "XMLTests\XMLTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEF", "ClassLibrary1\MEF.csproj", "{7BF9F1D2-649A-40C0-A42A-A120C1C997C2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F7A3FFCD-B942-4AA0-9B64-8B3F8D255737}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{84A027EA-AB01-4586-82A1-AE0FC37191A2} = {F7A3FFCD-B942-4AA0-9B64-8B3F8D255737}
+		{27EB8D7A-A6E8-40C0-9C5E-3A51EA09F110} = {F7A3FFCD-B942-4AA0-9B64-8B3F8D255737}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {165E4CB3-D0E2-4206-BE47-71A520BB3CFD}

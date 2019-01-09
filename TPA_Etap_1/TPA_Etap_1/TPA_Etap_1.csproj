@@ -62,6 +62,10 @@
       <Project>{2e65285c-ed8d-4b51-ab66-f4b9e0062290}</Project>
       <Name>Loging</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{74BA2C41-7D6A-428E-9977-0A902CF79E80}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ViewModel\ViewModel.csproj">
       <Project>{F6D78536-2603-4666-9AAC-209C2B46A73A}</Project>
       <Name>ViewModel</Name>

@@ -11,9 +11,9 @@ using System.ServiceModel;
 
 namespace DataSerializer
 {
-    [Export(typeof(ISerializer<>))]
-    [ServiceContract(Name = "IRepostioryXML")]
-    public class XMLSerializer<T> : ISerializer<T>
+    [Export(typeof(ISerializer))]
+    [ServiceContract(Name = "XMLSerializer")]
+    public class XMLSerializer : ISerializer
     {
         public T Deserialize<T>(string path)
         {

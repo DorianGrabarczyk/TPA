@@ -120,15 +120,16 @@ namespace TPA_Etap_1.Reflection.Model
 
         #region private
         //vars
-        [DataMember]
+        
         private string m_Name;
-        [DataMember]
+        
         public IEnumerable<TypeMetadata> m_GenericArguments;
-        private Tuple<AccessLevel, AbstractEnum, StaticEnum, VirtualEnum> m_Modifiers;
-        [DataMember]
+        public Tuple<AccessLevel, AbstractEnum, StaticEnum, VirtualEnum> m_Modifiers;
+        
         public TypeMetadata m_ReturnType;
-        private bool m_Extension;
-        [DataMember]
+        
+        public bool m_Extension;
+        
         public IEnumerable<ParameterMetadata> m_Parameters { get; set; }
         //constructor
         private MethodMetadata(MethodBase method)

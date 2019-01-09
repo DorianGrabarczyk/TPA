@@ -1,6 +1,9 @@
 ﻿using Loging;
 using System.Linq;
+using System;
 using TPA_Etap_1.Reflection.Model;
+using DataSerializer.DTO;
+using System.Collections.ObjectModel;
 
 namespace ViewModel.ViewItems
 {
@@ -18,61 +21,64 @@ namespace ViewModel.ViewItems
 
        // public override bool Expandable => _typeMetaData.m_Methods.Count() > 0 || _typeMetaData?.Properties.Count() > 0; // _typeMetaData.Constructors.Count() > 0;
 
-        public override void LoadChildren()
+        public override void LoadChildren(ObservableCollection<ITree> children)
         {
-            base.LoadChildren();
-            Children.Clear();
-            // Children.Clear();
-            //if (_typeMetaData.Constructors != null)
-            //    Children.Add(new ConstructorsView(Log, _typeMetaData.Constructors));
-            //if (_typeMetaData.m_Methods != null)
-            //    Children.Add(new MethodsMetadataView(Log, _typeMetaData.m_Methods));
-            //if (_typeMetaData.Properties != null)
-            //    Children.Add(new PropertiesMetadataView(Log, _typeMetaData.Properties));
-            if (_typeMetaData.m_Methods !=null)
-                foreach(var method in _typeMetaData.m_Methods)
-                {
-                    Children.Add(new MethodMetadataView(Log,method));
-                }
             if (_typeMetaData.m_Properties != null)
                 foreach (var property in _typeMetaData.m_Properties)
                 {
-                    Children.Add(new PropertyMetadataView(Log,property));
+                    children.Add(new PropertyMetadataView(Log, property));
                 }
+            if (_typeMetaData.m_Methods !=null)
+                foreach(var method in _typeMetaData.m_Methods)
+                {
+                    children.Add(new MethodMetadataView(Log,method));
+                }          
             if (_typeMetaData.m_BaseType != null)
-                Children.Add(new TypeMetadataView(Log,_typeMetaData.m_BaseType));
+                children.Add(new TypeMetadataView(Log,_typeMetaData.m_BaseType));
             if (_typeMetaData.m_DeclaringType != null)
-                Children.Add(new TypeMetadataView(Log,_typeMetaData.m_DeclaringType));
+                children.Add(new TypeMetadataView(Log,_typeMetaData.m_DeclaringType));
 
             if(_typeMetaData.m_GenericArguments !=null)
             {
                 foreach(var arguments in _typeMetaData.m_GenericArguments)
                 {
-                    Children.Add(new TypeMetadataView(Log, arguments));
+                    children.Add(new TypeMetadataView(Log, arguments));
                 }
             }
             if (_typeMetaData.m_ImplementedInterfaces != null)
                 foreach (var inter in _typeMetaData.m_ImplementedInterfaces)
                 {
-                    Children.Add(new TypeMetadataView(Log,inter));
+                    children.Add(new TypeMetadataView(Log,inter));
                 }
 
             if (_typeMetaData.m_NestedTypes != null)
                 foreach (var nestedType in _typeMetaData.m_NestedTypes)
                 {
-                    Children.Add(new TypeMetadataView(Log,nestedType));
+                    children.Add(new TypeMetadataView(Log,nestedType));
                 }
 
             if (_typeMetaData.m_Constructors != null)
                 foreach (var constructor in _typeMetaData.m_Constructors)
                 {
-                    Children.Add(new MethodMetadataView(Log,constructor));
+                    children.Add(new MethodMetadataView(Log,constructor));
                 }
         }
 
         public override string ToString()
         {
-            return "Type : " + _typeMetaData.Name;
+            String str = "";
+            if(_typeMetaData.m_Modifiers != null)
+            {
+                str += _typeMetaData.m_Modifiers.Item1.ToString() + " ";
+                if (_typeMetaData.m_Modifiers.Item2 == SealedEnum.Sealed)
+                    str += SealedEnum.Sealed.ToString();
+                if (_typeMetaData.m_Modifiers.Item3 == AbstractEnum.Abstract)
+                    str += AbstractEnum.Abstract.ToString();
+            }
+
+            str += _typeMetaData.m_typeName + " ";
+
+            return str;
         }
     }
 }

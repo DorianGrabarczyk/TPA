@@ -29,8 +29,9 @@ namespace TPA_Etap_1
         {
             string choice = "";
             _viewContext.Path = _viewContext.PathGetter.getFilePath();
-            _viewContext.TreeViewLoaded();
-            loadedChildren.Add(new CommandTreeItems(0, _viewContext.HierarchicalAreas[0]));
+            reflector.Reflect(_viewContext.Path);
+            _viewContext.TreeViewLoaded(reflector.AssemblyModel);
+
             Console.Clear();
             do
             {
@@ -56,7 +57,7 @@ namespace TPA_Etap_1
                 if (choice == "ch")
                 {
                     _viewContext.Path = _viewContext.PathGetter.getFilePath();
-                    _viewContext.TreeViewLoaded();
+                    _viewContext.TreeViewLoaded(reflector.AssemblyModel);
                     loadedChildren.Add(new CommandTreeItems(0, _viewContext.HierarchicalAreas[0]));
                 }
                 if (choice == "exit")

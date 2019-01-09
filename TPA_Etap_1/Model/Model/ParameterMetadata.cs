@@ -44,9 +44,9 @@ namespace TPA_Etap_1.Reflection.Model
         }
 
         //private vars
-        [DataMember]
+        
         public string m_Name { get; set; }
-        [DataMember]
+        
         public TypeMetadata m_TypeMetadata { get; set; }
 
     }

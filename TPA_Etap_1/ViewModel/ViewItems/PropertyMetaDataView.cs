@@ -1,4 +1,5 @@
 ﻿using Loging;
+using System.Collections.ObjectModel;
 using TPA_Etap_1.Reflection.Model;
 
 namespace ViewModel.ViewItems
@@ -13,18 +14,12 @@ namespace ViewModel.ViewItems
         }
 
         public override string Name => this.ToString();
-        public override bool Expandable => _property.m_TypeMetadata != null;
 
-        public override void LoadChildren()
+        public override void LoadChildren(ObservableCollection<ITree> children)
         {
-            base.LoadChildren();
-            Children.Clear();
             if (_property !=null)
             {
-                if (TypeMetadata.m_typesMetadata.ContainsKey(_property.m_TypeMetadata.Name))
-                    Children.Add(new TypeMetadataView(base.Log, TypeMetadata.m_typesMetadata[_property.m_TypeMetadata.Name]));
-                else
-                    Children.Add(new TypeMetadataView(base.Log, _property.m_TypeMetadata));
+                children.Add(new TypeMetadataView(Log,_property.m_TypeMetadata));
             }
         }
 

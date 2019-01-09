@@ -59,9 +59,9 @@ namespace TPA_Etap_1.Reflection.Model
             m_Types = from type in types orderby type.Name select new TypeMetadata(type);
         }
 
-        [DataMember(Name = "NamespaceName")]
+        
         public string m_NamespaceName;
-        [DataMember(Name = "Types")]
+        
         public IEnumerable<TypeMetadata> m_Types;
         
         
