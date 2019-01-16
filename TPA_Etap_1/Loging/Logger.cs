@@ -2,22 +2,18 @@
 using System.ComponentModel.Composition;
 using System.Diagnostics;
 using System.IO;
+using Interfaces;
 
 namespace Loging
 {
-    [Export(typeof(Logger))]
-    public class Logger
+    [Export(typeof(ILogger))]
+    public class Logger : ILogger
     {
         private string path;
         public Logger()
         {
-
-            path = "..\\..\\..\\log.txt";
-            StreamWriter file = File.CreateText(path);
-
-            Trace.Listeners.Add(new TextWriterTraceListener(file));
+            Trace.Listeners.Add(new TextWriterTraceListener(DateTime.Now.ToString("d-m-yyyy_HH-mm-ss") + "_" + "log.log"));
             Trace.AutoFlush = true;
-
         }
 
         public Logger(string destination)

@@ -1,4 +1,4 @@
-﻿using Loging;
+﻿using Interfaces;
 using System.Collections.ObjectModel;
 using TPA_Etap_1.Reflection.Model;
 
@@ -10,7 +10,7 @@ namespace ViewModel.ViewItems
 
         public override string Name => this.ToString();
 
-        public ParameterMetadataView(Logger log, ParameterMetadata parameter) : base(log)
+        public ParameterMetadataView(ILogger log, ParameterMetadata parameter) : base(log)
         {
             _parameter = parameter;
         }

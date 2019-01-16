@@ -1,5 +1,4 @@
-﻿
-namespace DataSerializer.DTO
+﻿namespace DataLayer.DTO
 {
     public enum AbstractEnum
     {

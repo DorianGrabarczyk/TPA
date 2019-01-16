@@ -1,5 +1,5 @@
 ﻿using System.Runtime.Serialization;
-using DataSerializer.DTO;
+using DataLayer.DTO;
 namespace TPA_Etap_1.Reflection.Model
 {
     

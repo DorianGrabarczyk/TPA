@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.Composition;
 using System.Runtime.Serialization;
 using System.Xml;
 using System.IO;
-using System.ServiceModel;
+using DataLayer.DTO;
+using Interfaces;
 
-namespace DataSerializer
+namespace FileSerializer
 {
     [Export(typeof(ISerializer))]
-    [ServiceContract(Name = "XMLSerializer")]
+    //[ServiceContract(Name = "XMLSerializer")]
     public class XMLSerializer : ISerializer
     {
-        public T Deserialize<T>(string path)
+        //private readonly DataContractSerializer serializer = new DataContractSerializer(typeof(XMLAs))
+        public BaseAssemblyMetadata Deserialize(string path)
         {
             List<Type> lista = new List<Type>
                 {
@@ -26,19 +25,21 @@ namespace DataSerializer
                 typeof(System.SerializableAttribute),
                 typeof(System.Runtime.Serialization.KnownTypeAttribute)
                 };
-            T temp = default(T);
-            DataContractSerializer ser = new DataContractSerializer(typeof(T));
+            BaseAssemblyMetadata temp = default(BaseAssemblyMetadata);
+            DataContractSerializer ser = new DataContractSerializer(typeof(BaseAssemblyMetadata));
 
 
             using (var xmlreader = XmlReader.Create(path))
             {
                 // XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas { MaxDepth = int.MaxValue });
-                temp = (T)ser.ReadObject(xmlreader);
+                temp = (BaseAssemblyMetadata)ser.ReadObject(xmlreader);
             }
             return temp;
         }
 
-        public void Serialize<T> (T data, string path)
+
+
+        public void Serialize(BaseAssemblyMetadata data, string path)
         {
             using (FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None))
             {
@@ -58,15 +59,15 @@ namespace DataSerializer
                 //writer.Close();
                 List<Type> lista = new List<Type>
                 {
-                typeof(System.FlagsAttribute),
-                typeof(System.Reflection.DefaultMemberAttribute),
-                typeof(System.AttributeUsageAttribute),
-                typeof(System.ObsoleteAttribute),
-                typeof(System.SerializableAttribute),
-                typeof(System.Runtime.Serialization.KnownTypeAttribute)
+                    typeof(System.FlagsAttribute),
+                    typeof(System.Reflection.DefaultMemberAttribute),
+                    typeof(System.AttributeUsageAttribute),
+                    typeof(System.ObsoleteAttribute),
+                    typeof(System.SerializableAttribute),
+                    typeof(System.Runtime.Serialization.KnownTypeAttribute)
                 };
-                DataContractSerializerSettings DCsettings = new DataContractSerializerSettings{ PreserveObjectReferences = true, KnownTypes = lista };
-                DataContractSerializer ser = new DataContractSerializer(typeof(T), DCsettings);
+                DataContractSerializerSettings DCsettings = new DataContractSerializerSettings { PreserveObjectReferences = true, KnownTypes = lista };
+                DataContractSerializer ser = new DataContractSerializer(typeof(BaseAssemblyMetadata), DCsettings);
                 var XmlWriterSettings = new XmlWriterSettings()
                 {
                     Indent = true,
@@ -78,8 +79,6 @@ namespace DataSerializer
                 {
                     ser.WriteObject(XmlWriter, data);
                 }
-                
-
             }
         }
     }

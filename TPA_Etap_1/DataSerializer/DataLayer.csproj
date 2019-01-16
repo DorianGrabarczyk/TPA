@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F6D78536-2603-4666-9AAC-209C2B46A73A}</ProjectGuid>
+    <ProjectGuid>{488213AC-8423-496B-88C2-92ABDE833CE9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ViewModel</RootNamespace>
-    <AssemblyName>ViewModel</AssemblyName>
+    <RootNamespace>DataLayer</RootNamespace>
+    <AssemblyName>DataLayer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,64 +29,38 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Reflector.cs" />
+    <Compile Include="DTO\AbstractEnum.cs" />
+    <Compile Include="DTO\AccessLevel.cs" />
+    <Compile Include="DTO\BaseAssemblyMetadata.cs" />
+    <Compile Include="DTO\BaseMethodMetadata.cs" />
+    <Compile Include="DTO\BaseNamespaceMetadata.cs" />
+    <Compile Include="DTO\BaseParameterMetadata.cs" />
+    <Compile Include="DTO\BasePropertyMetadata.cs" />
+    <Compile Include="DTO\BaseTypeMetadata.cs" />
+    <Compile Include="DTO\SealedEnum.cs" />
+    <Compile Include="DTO\StaticEnum.cs" />
+    <Compile Include="DTO\TypeKind.cs" />
+    <Compile Include="DTO\VirtualEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MVVM\RelayCommand.cs" />
-    <Compile Include="ViewContext.cs" />
-    <Compile Include="ViewItems\AssemblyMetadataView.cs" />
-    <Compile Include="ViewItems\MethodMetadataView.cs" />
-    <Compile Include="ViewItems\NamespaceMetadataView.cs" />
-    <Compile Include="ViewItems\ITree.cs" />
-    <Compile Include="ViewItems\ParameterMetadataView.cs" />
-    <Compile Include="ViewItems\PropertyMetadataView.cs" />
-    <Compile Include="ViewItems\TypeMetadataView.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataSerializer\DataLayer.csproj">
-      <Project>{488213ac-8423-496b-88c2-92abde833ce9}</Project>
-      <Name>DataLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
-      <Project>{69769dc5-3313-4c6d-a75e-26d956c266f7}</Project>
-      <Name>Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MEF\MEF.csproj">
-      <Project>{d761287e-a58e-4cab-ac40-1fe43641d116}</Project>
-      <Name>MEF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{74ba2c41-7d6a-428e-9977-0a902cf79e80}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

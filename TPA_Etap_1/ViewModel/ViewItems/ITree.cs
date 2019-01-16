@@ -1,11 +1,11 @@
-﻿using Loging;
+﻿using Interfaces;
 using System.Collections.ObjectModel;
 
 namespace ViewModel.ViewItems
 {
     public abstract class ITree
     {
-        public ITree(Logger log)
+        public ITree(ILogger log)
         {
             Log = log;
             Children = new ObservableCollection<ITree> { null };
@@ -15,10 +15,11 @@ namespace ViewModel.ViewItems
         public abstract string Name { get; }
         public ObservableCollection<ITree> Children { get; set; }
 
-        internal Logger Log;
+        internal ILogger Log;
 
         private bool isExpanded;
         private bool built;
+
         public bool IsExpanded
         {
             get => isExpanded;
@@ -32,6 +33,7 @@ namespace ViewModel.ViewItems
                 built = true;
             }
         }
+
         public virtual void LoadChildren(ObservableCollection<ITree> children)
         {
             Log.Log(LogEnum.Information, Name + "'s children were loaded.");

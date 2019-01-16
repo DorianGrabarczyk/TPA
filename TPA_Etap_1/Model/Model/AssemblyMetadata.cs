@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization;
-using DataSerializer.DTO;
+using DataLayer.DTO;
 
 namespace TPA_Etap_1.Reflection.Model
 {
-    
     public class AssemblyMetadata
     {
         public BaseAssemblyMetadata MapUp()

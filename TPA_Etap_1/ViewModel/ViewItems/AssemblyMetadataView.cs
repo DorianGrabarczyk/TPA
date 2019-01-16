@@ -1,4 +1,4 @@
-﻿using Loging;
+﻿using Interfaces;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace ViewModel.ViewItems
     {
         private AssemblyMetadata _assembly;
 
-        public AssemblyMetadataView(Logger log, AssemblyMetadata assembly) : base(log)
+        public AssemblyMetadataView(ILogger log, AssemblyMetadata assembly) : base(log)
         {
             _assembly = assembly;
         }
@@ -27,6 +27,7 @@ namespace ViewModel.ViewItems
                         children.Add(new NamespaceMetadataView(Log, child));
             }
         }
+
         public override string ToString()
         {
             String str = _assembly.Name;

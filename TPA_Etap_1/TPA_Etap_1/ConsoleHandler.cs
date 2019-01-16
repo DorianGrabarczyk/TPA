@@ -1,5 +1,4 @@
-﻿using GUI;
-using Loging;
+﻿using Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,8 +10,7 @@ namespace TPA_Etap_1
 {
     public class ConsoleHandler : IDisplayHandler
     {
-        private Reflector reflector = new Reflector();
-        private Logger Log;
+        private ILogger Log;
         public ViewContext _viewContext;
         private int depth;
         private List<CommandTreeItems> loadedChildren = new List<CommandTreeItems>();
@@ -28,9 +26,7 @@ namespace TPA_Etap_1
         public void DisplayMenu()
         {
             string choice = "";
-            _viewContext.Path = _viewContext.PathGetter.getFilePath();
-            reflector.Reflect(_viewContext.Path);
-            _viewContext.TreeViewLoaded(reflector.AssemblyModel);
+            _viewContext.Browse_Bttn.Execute(null);
 
             Console.Clear();
             do
@@ -57,7 +53,7 @@ namespace TPA_Etap_1
                 if (choice == "ch")
                 {
                     _viewContext.Path = _viewContext.PathGetter.getFilePath();
-                    _viewContext.TreeViewLoaded(reflector.AssemblyModel);
+                    _viewContext.Browse_Bttn.Execute(null);
                     loadedChildren.Add(new CommandTreeItems(0, _viewContext.HierarchicalAreas[0]));
                 }
                 if (choice == "exit")
@@ -66,22 +62,16 @@ namespace TPA_Etap_1
                 Console.Clear();
             }
             while (true);
-
         }
 
         public string SelectFile()
         {
             Console.WriteLine("Select File");
             return Console.ReadLine();
-
         }
 
         public void DisplayTree(ObservableCollection<ITree> items, int currentDepth)
         {
-            // AssemblyMetadataView rootItem = new AssemblyMetadataView(Log, reflector.AssemblyModel);
-            // rootItem.LoadChildren();
-            // Console.WriteLine(rootItem.Name);
-            //Console.Clear();
             foreach (var item in items)
             {
                 if (item != null)
@@ -92,9 +82,9 @@ namespace TPA_Etap_1
                         DisplayTree(item.Children, currentDepth + 1);
                     }
                 }
-
             }
         }
+
         private string paragraphs(int depth)
         {
             string tabulator = "";
@@ -102,6 +92,7 @@ namespace TPA_Etap_1
                 tabulator += "   ";
             return tabulator;
         }
+
         public void ExpandTree()
         {
             List<ITree> toAdd = new List<ITree>();
@@ -111,10 +102,7 @@ namespace TPA_Etap_1
                 if (item._itree != null)
                 {
                     if (item._depth == depth)
-
-
                         item._itree.IsExpanded = true;
-
 
                     foreach (var child in item._itree.Children)
                     {
@@ -122,13 +110,14 @@ namespace TPA_Etap_1
                             toAdd.Add(child);
                     }
                 }
-
             }
+
             foreach (var ob in toAdd)
             {
                 loadedChildren.Add(new CommandTreeItems((depth + 1), ob));
                 Log.Log(LogEnum.Information, "Element " + ob.Name + " was added.");
             }
+
             depth++;
             Log.Log(LogEnum.Information, "Expanded to depth " + depth);
         }
@@ -139,20 +128,16 @@ namespace TPA_Etap_1
             {
                 foreach (var item in loadedChildren)
                 {
-
                     if (item._depth == depth)
                     {
                         if (item._itree != null)
                             item._itree.IsExpanded = false;
                     }
-
                 }
                 depth--;
                 Log.Log(LogEnum.Information, "Tree compressed to depth " + depth);
             }
             else Log.Log(LogEnum.Warning, "Tree cannot be compressed further.");
         }
-
-
     }
 }

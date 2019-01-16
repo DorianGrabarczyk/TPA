@@ -56,9 +56,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataSerializer\DataSerializer.csproj">
+    <ProjectReference Include="..\DataSerializer\DataLayer.csproj">
       <Project>{488213AC-8423-496B-88C2-92ABDE833CE9}</Project>
-      <Name>DataSerializer</Name>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileSerializer\FileSerializer.csproj">
+      <Project>{21ea122c-0d97-4a6b-ac3a-87c1f066ae33}</Project>
+      <Name>FileSerializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{69769dc5-3313-4c6d-a75e-26d956c266f7}</Project>
+      <Name>Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\Loging\Loging.csproj">
       <Project>{2E65285C-ED8D-4B51-AB66-F4B9E0062290}</Project>

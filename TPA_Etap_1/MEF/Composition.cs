@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.Composition;
+﻿using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using System.IO;
 
 namespace Mef
 {
@@ -17,23 +11,13 @@ namespace Mef
 
         public void Compose(object obj)
         {
-            //DirectoryCatalog log = new DirectoryCatalog("..\\..\\..\\Loging\\bin\\Debug");
-            // _catalog.Catalogs.Add(log);
-            // _container = new CompositionContainer(_catalog);
-
-            // string log = "..\\..\\..\\Loging\\bin\\Debug";
-            List<DirectoryCatalog> directoryCatalogs = new List<DirectoryCatalog>();
-
-
-            if (Directory.Exists("..\\..\\..\\DataSerializer\\bin\\Debug"))
-                directoryCatalogs.Add(new DirectoryCatalog("..\\..\\..\\DataSerializer\\bin\\Debug"));
-            if (Directory.Exists("..\\..\\..\\Loging\\bin\\Debug"))
-                directoryCatalogs.Add(new DirectoryCatalog("..\\..\\..\\Loging\\bin\\Debug"));
-            AggregateCatalog catalog = new AggregateCatalog(directoryCatalogs);
-            CompositionContainer container = new CompositionContainer(catalog);
-
-            container.ComposeParts(obj);
-
+            AggregateCatalog catalog = new AggregateCatalog();
+            DirectoryCatalog exe = new DirectoryCatalog("..\\..\\..\\parts", "*.exe");
+            DirectoryCatalog dll = new DirectoryCatalog("..\\..\\..\\parts");
+            catalog.Catalogs.Add(exe);
+            catalog.Catalogs.Add(dll);
+            _container = new CompositionContainer(catalog);
+            _container.ComposeParts(obj);
         }
     }
 }

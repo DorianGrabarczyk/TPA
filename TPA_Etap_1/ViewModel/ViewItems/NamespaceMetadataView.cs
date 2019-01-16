@@ -1,6 +1,5 @@
-﻿using Loging;
+﻿using Interfaces;
 using System.Collections.ObjectModel;
-using System.Linq;
 using TPA_Etap_1.Reflection.Model;
 
 namespace ViewModel.ViewItems
@@ -9,7 +8,7 @@ namespace ViewModel.ViewItems
     {
         private NamespaceMetadata _namespaceMetadata;
 
-        public NamespaceMetadataView(Logger log, NamespaceMetadata namespaceMetadata) : base(log)
+        public NamespaceMetadataView(ILogger log, NamespaceMetadata namespaceMetadata) : base(log)
         {
             _namespaceMetadata = namespaceMetadata;
         }
@@ -24,14 +23,11 @@ namespace ViewModel.ViewItems
                 {
                     Children.Add(new TypeMetadataView(Log,child));
                 }
-
-
         }
+
         public override string ToString()
         {
             return "Namespace : " + _namespaceMetadata.m_NamespaceName;
         }
-
-
     }
 }

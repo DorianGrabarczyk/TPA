@@ -1,11 +1,10 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
-using DataSerializer.DTO;
+using DataLayer.DTO;
 
 
 namespace TPA_Etap_1.Reflection.Model

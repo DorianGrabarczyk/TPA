@@ -1,18 +1,16 @@
-﻿using Loging;
-using System.Linq;
+﻿using Interfaces;
 using System;
 using TPA_Etap_1.Reflection.Model;
-using DataSerializer.DTO;
+using DataLayer.DTO;
 using System.Collections.ObjectModel;
 
 namespace ViewModel.ViewItems
 {
     public class TypeMetadataView : ITree
-
     {
         private TypeMetadata _typeMetaData;
 
-        public TypeMetadataView(Logger log, TypeMetadata typeMetadata) : base(log)
+        public TypeMetadataView(ILogger log, TypeMetadata typeMetadata) : base(log)
         {
             _typeMetaData = typeMetadata;
         }

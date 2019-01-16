@@ -1,11 +1,7 @@
-﻿using Loging;
+﻿using Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TPA_Etap_1.Reflection.Model;
-using DataSerializer.DTO;
+using DataLayer.DTO;
 using System.Collections.ObjectModel;
 
 namespace ViewModel.ViewItems
@@ -16,7 +12,7 @@ namespace ViewModel.ViewItems
 
         public override string Name => this.ToString();
 
-        public MethodMetadataView(Logger log, MethodMetadata method) : base(log)
+        public MethodMetadataView(ILogger log, MethodMetadata method) : base(log)
         {
             _method = method;
         }
