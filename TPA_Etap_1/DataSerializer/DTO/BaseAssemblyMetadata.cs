@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataSerializer.DTO
+namespace DataLayer.DTO
 {
     [DataContract(IsReference = true)]
-    public class BaseAssemblyMetadata
+    public class BaseAssemblyMetadata 
     {
         [DataMember(Name = "AssemblyName")]
         public string AssemblyName { get; set; }

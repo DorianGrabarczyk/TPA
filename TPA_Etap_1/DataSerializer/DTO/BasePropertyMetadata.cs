@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataSerializer.DTO
+namespace DataLayer.DTO
 {
     public class BasePropertyMetadata
     {

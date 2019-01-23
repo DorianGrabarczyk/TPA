@@ -1,5 +1,4 @@
-﻿using GUI;
-using Loging;
+﻿using Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,8 +10,7 @@ namespace TPA_Etap_1
 {
     public class ConsoleHandler : IDisplayHandler
     {
-        private Reflector reflector = new Reflector();
-        private Logger Log;
+        private ILogger Log;
         public ViewContext _viewContext;
         private int depth;
         private List<CommandTreeItems> loadedChildren = new List<CommandTreeItems>();
@@ -28,9 +26,9 @@ namespace TPA_Etap_1
         public void DisplayMenu()
         {
             string choice = "";
-            _viewContext.Path = _viewContext.PathGetter.getFilePath();
-            reflector.Reflect(_viewContext.Path);
-            _viewContext.TreeViewLoaded(reflector.AssemblyModel);
+            // _viewContext.Path = _viewContext.PathGetter.getFilePath();
+            //_viewContext._reflector.Reflect(_viewContext.Path);
+            _viewContext.Browse_Bttn.Execute(null);
 
             Console.Clear();
             do
@@ -57,7 +55,7 @@ namespace TPA_Etap_1
                 if (choice == "ch")
                 {
                     _viewContext.Path = _viewContext.PathGetter.getFilePath();
-                    _viewContext.TreeViewLoaded(reflector.AssemblyModel);
+                    _viewContext.Browse_Bttn.Execute(null);
                     loadedChildren.Add(new CommandTreeItems(0, _viewContext.HierarchicalAreas[0]));
                 }
                 if (choice == "exit")

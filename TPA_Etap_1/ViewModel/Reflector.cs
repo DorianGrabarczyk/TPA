@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using TPA_Etap_1.Reflection.Model;
+using Model;
 
 namespace ViewModel
 {
@@ -9,7 +9,7 @@ namespace ViewModel
 
         public void Reflect(string assemblyFile)
         {
-            Assembly assembly = Assembly.LoadFrom(assemblyFile);
+            Assembly assembly = Assembly.ReflectionOnlyLoadFrom(assemblyFile);
             AssemblyModel = new AssemblyMetadata(assembly);
         }
 

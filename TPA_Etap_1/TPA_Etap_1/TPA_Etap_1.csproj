@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,17 +55,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GUI\GUI.csproj">
-      <Project>{D55F0BD5-06EB-4011-991C-EDD91A5273AD}</Project>
-      <Name>GUI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Loging\Loging.csproj">
-      <Project>{2e65285c-ed8d-4b51-ab66-f4b9e0062290}</Project>
-      <Name>Loging</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{74BA2C41-7D6A-428E-9977-0A902CF79E80}</Project>
-      <Name>Model</Name>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{596061A0-5E1E-4448-AFA5-47879C632F72}</Project>
+      <Name>Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\ViewModel\ViewModel.csproj">
       <Project>{F6D78536-2603-4666-9AAC-209C2B46A73A}</Project>

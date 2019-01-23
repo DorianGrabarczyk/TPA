@@ -11,28 +11,35 @@ namespace Mef
 {
     public class Composition
     {
-        public CompositionContainer _container;
-        public AggregateCatalog _catalog = new AggregateCatalog();
+        private CompositionContainer _container;
+        public static CompositionContainer container;
+        private AggregateCatalog _catalog = new AggregateCatalog();
+         public static CompositionContainer Container
+        {
+            get
+            {
+                if (container == null)
+                {
+                    var catalog = new DirectoryCatalog("..\\..\\..\\parts", "*");
+                    container = new CompositionContainer(catalog);
+                }
 
+                return container;
+            }
+        }
 
         public void Compose(object obj)
         {
-            //DirectoryCatalog log = new DirectoryCatalog("..\\..\\..\\Loging\\bin\\Debug");
-            // _catalog.Catalogs.Add(log);
-            // _container = new CompositionContainer(_catalog);
+        
+            AggregateCatalog catalog = new AggregateCatalog();
+            DirectoryCatalog exe = new DirectoryCatalog("..\\..\\..\\parts", "*.exe");
+            DirectoryCatalog dll = new DirectoryCatalog("..\\..\\..\\parts");
+            catalog.Catalogs.Add(exe);
+            catalog.Catalogs.Add(dll);
+            _container = new CompositionContainer(catalog);
+            _container.ComposeParts(obj);
 
-            // string log = "..\\..\\..\\Loging\\bin\\Debug";
-            List<DirectoryCatalog> directoryCatalogs = new List<DirectoryCatalog>();
-
-
-            if (Directory.Exists("..\\..\\..\\DataSerializer\\bin\\Debug"))
-                directoryCatalogs.Add(new DirectoryCatalog("..\\..\\..\\DataSerializer\\bin\\Debug"));
-            if (Directory.Exists("..\\..\\..\\Loging\\bin\\Debug"))
-                directoryCatalogs.Add(new DirectoryCatalog("..\\..\\..\\Loging\\bin\\Debug"));
-            AggregateCatalog catalog = new AggregateCatalog(directoryCatalogs);
-            CompositionContainer container = new CompositionContainer(catalog);
-
-            container.ComposeParts(obj);
+            
 
         }
     }

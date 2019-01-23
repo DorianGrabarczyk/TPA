@@ -1,7 +1,7 @@
-﻿using Loging;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
-using TPA_Etap_1.Reflection.Model;
+using Model;
+using Interfaces;
 
 namespace ViewModel.ViewItems
 {
@@ -9,7 +9,7 @@ namespace ViewModel.ViewItems
     {
         private NamespaceMetadata _namespaceMetadata;
 
-        public NamespaceMetadataView(Logger log, NamespaceMetadata namespaceMetadata) : base(log)
+        public NamespaceMetadataView(ILogger log, NamespaceMetadata namespaceMetadata) : base(log)
         {
             _namespaceMetadata = namespaceMetadata;
         }

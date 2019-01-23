@@ -2,7 +2,7 @@
 using System;
 using System.Reflection;
 
-namespace TPA_Etap_1.Reflection.Model
+namespace Model
 {
   public static class ExtensionMethods
   {

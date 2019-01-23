@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -8,7 +10,7 @@ using ViewModel;
 
 namespace TPA_Etap_1
 {
-    public class CommandLineFilePathGetter : IFileManager
+    public class CommandLineFilePathGetter : IGetterFilePath
     {
 
         public string getFilePath()

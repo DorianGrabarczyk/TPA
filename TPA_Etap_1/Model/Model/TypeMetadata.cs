@@ -1,10 +1,10 @@
-﻿using DataSerializer.DTO;
+﻿using DataLayer.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 
-namespace TPA_Etap_1.Reflection.Model
+namespace Model
 {
     
     public class TypeMetadata

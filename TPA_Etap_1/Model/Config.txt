@@ -1,0 +1,2 @@
+﻿repository|File
+logging|FileTraceSource

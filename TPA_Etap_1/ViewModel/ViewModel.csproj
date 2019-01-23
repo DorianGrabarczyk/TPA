@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -46,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IGetterFilePath.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -65,13 +65,17 @@
     <Compile Include="ViewItems\TypeMetadataView.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataSerializer\DataSerializer.csproj">
-      <Project>{488213ac-8423-496b-88c2-92abde833ce9}</Project>
-      <Name>DataSerializer</Name>
+    <ProjectReference Include="..\DataBase\DataBase.csproj">
+      <Project>{D226FD7D-BDF4-4AEA-810F-339E4C283D6E}</Project>
+      <Name>DataBase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Loging\Loging.csproj">
-      <Project>{2e65285c-ed8d-4b51-ab66-f4b9e0062290}</Project>
-      <Name>Loging</Name>
+    <ProjectReference Include="..\DataSerializer\DataLayer.csproj">
+      <Project>{488213ac-8423-496b-88c2-92abde833ce9}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{596061A0-5E1E-4448-AFA5-47879C632F72}</Project>
+      <Name>Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MEF\MEF.csproj">
       <Project>{d761287e-a58e-4cab-ac40-1fe43641d116}</Project>

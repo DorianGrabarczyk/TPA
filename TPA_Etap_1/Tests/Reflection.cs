@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using Loging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TPA_Etap_1.Reflection.Model;
+using Model;
 using ViewModel;
 using ViewModel.ViewItems;
 

@@ -1,8 +1,8 @@
-﻿using Loging;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using TPA_Etap_1.Reflection.Model;
+using Model;
+using Interfaces;
 
 namespace ViewModel.ViewItems
 {
@@ -10,7 +10,7 @@ namespace ViewModel.ViewItems
     {
         private AssemblyMetadata _assembly;
 
-        public AssemblyMetadataView(Logger log, AssemblyMetadata assembly) : base(log)
+        public AssemblyMetadataView(ILogger log, AssemblyMetadata assembly) : base(log)
         {
             _assembly = assembly;
         }

@@ -5,10 +5,10 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
-using DataSerializer.DTO;
+using DataLayer.DTO;
 
 
-namespace TPA_Etap_1.Reflection.Model
+namespace Model
 {
 
     public class MethodMetadata
@@ -156,7 +156,8 @@ namespace TPA_Etap_1.Reflection.Model
         }
         private static bool EmitExtension(MethodBase method)
         {
-            return method.IsDefined(typeof(ExtensionAttribute), true);
+            return false;
+            // return method.IsDefined(typeof(ExtensionAttribute), true);
         }
         private static Tuple<AccessLevel, AbstractEnum, StaticEnum, VirtualEnum> EmitModifiers(MethodBase method)
         {

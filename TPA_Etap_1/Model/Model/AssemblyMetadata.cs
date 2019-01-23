@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
-using DataSerializer.DTO;
+using DataLayer.DTO;
+using Interfaces;
+using Mef;
 
-namespace TPA_Etap_1.Reflection.Model
+namespace Model
 {
     
     public class AssemblyMetadata
@@ -50,7 +53,14 @@ namespace TPA_Etap_1.Reflection.Model
                            select new NamespaceMetadata(_group.Key, _group);
                            
         }
-        
+        public void Save(string addr)
+        {
+            ISerializer serializer = Composition.Container.GetExportedValue<ISerializer>(ConfigurationManager.AppSettings["serialization"]);
+            ILogger logger = Composition.Container.GetExportedValue<ILogger>(ConfigurationManager.AppSettings["logging"]);
+            BaseAssemblyMetadata temp = this.MapUp();
+            serializer.Serialize(temp, addr);
+            logger.Log(LogEnum.Information, "Serialization complete");
+        }
         public string m_Name;
         
         public IEnumerable<NamespaceMetadata> m_Namespaces { get; set; }

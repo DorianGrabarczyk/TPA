@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
-using DataSerializer.DTO;
-namespace TPA_Etap_1.Reflection.Model
+using DataLayer.DTO;
+namespace Model
 {
     
     public class ParameterMetadata

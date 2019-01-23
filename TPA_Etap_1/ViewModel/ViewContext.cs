@@ -1,19 +1,18 @@
-﻿using DataSerializer;
-using Loging;
-using Microsoft.Win32;
+﻿using DataBase;
+using DataLayer.DTO;
+using Interfaces;
+using Mef;
+using Model;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
-using System;
-using ViewModel.ViewItems;
-using TPA_Etap_1.Reflection.Model;
-using DataSerializer.DTO;
-using Mef;
 using System.ComponentModel.Composition;
-using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using ViewModel.ViewItems;
 
 namespace ViewModel
 {
@@ -31,32 +30,32 @@ namespace ViewModel
 
         #region Private
 
-        
+
         private string _path;
-        [ImportMany(typeof(ISerializer))]
-        public List<ISerializer> serializer { get; set; }
-        [Import(typeof(Logger))]
-        public Logger _log { get; set; }
+        [Import(typeof(ILogger))]
+        public ILogger _log { get; set; }
+        [Import(typeof(IGetterFilePath))]
+        public IGetterFilePath PathGetter { get; set; }
+
 
         public Reflector _reflector;
+
 
         #endregion
 
         #region Constructors
 
         public ViewContext()
-        {
+        { 
             Composition Mef = new Composition();
-            
-            Mef.Compose(this);
 
-            //_log = log.FirstOrDefault();
+            Mef.Compose(this);
             Browse_Bttn = new RelayCommand(Browse);
-            //serializer = new XMLSerializer<Object>();
-            HierarchicalAreas = new ObservableCollection<ITree>();  
+            HierarchicalAreas = new ObservableCollection<ITree>();
             SerializeButton = new RelayCommand(async() => await Serialize());
+            //SerializeButton = new RelayCommand(Serialize);
             DeserializeButton = new RelayCommand(async () => await Deserialize());
-            
+
         }
 
 
@@ -79,7 +78,7 @@ namespace ViewModel
         public ICommand Button { get; }
         public ICommand SerializeButton { get; }
         public ICommand DeserializeButton { get; }
-        public IFileManager PathGetter { get; set; }
+
 
         public void TreeViewLoaded(AssemblyMetadata AssemblyMetadata)
         {
@@ -103,29 +102,35 @@ namespace ViewModel
         }
         public async Task Serialize(string pathh = null)
         {
-            pathh = PathGetter.getTargetFilePath();
+            pathh = ConfigurationManager.AppSettings["connectionstring"];
+            if (ConfigurationManager.AppSettings["serialization"] != "Database")
+            {
+                pathh = PathGetter.getTargetFilePath();
+            }
             try
             {
-                await Task.Run(() => serializer.FirstOrDefault()?.Serialize(_reflector.AssemblyModel.MapUp(),pathh));
+                await Task.Run(() => _reflector.AssemblyModel.Save(pathh));
             }
-            catch(ArgumentException exception)
+            catch (ArgumentException exception)
             {
                 _log.Log(LogEnum.Error, exception.Message);
             }
 
         }
+
         public async Task Deserialize(string path = null)
         {
-            if(path == null)
+            path = ConfigurationManager.AppSettings["connectionstring"];
+            if (ConfigurationManager.AppSettings["serialization"] != "Database")
             {
-                path = PathGetter.getFilePath();
+                if (path == null)
+                {
+                    path = PathGetter.getFilePath();
+                }
             }
-            
-
-
-           AssemblyMetadata assembly = new AssemblyMetadata(await Task.Run(() => serializer.FirstOrDefault()?.Deserialize<BaseAssemblyMetadata>(path)));
+            AssemblyMetadata assembly = new AssemblyMetadata(await Task.Run(() => SerializationOperations.Read(path)));
             TreeViewLoaded(assembly);
-            
+
         }
 
         #endregion

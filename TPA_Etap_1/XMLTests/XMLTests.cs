@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DataSerializer;
-using DataSerializer.DTO;
+using DataLayer;
+using DataLayer.DTO;
+using FileSerializer;
+using Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TPA_Etap_1.Reflection.Model;
+using Model;
 using ViewModel;
 using ViewModel.ViewItems;
 
@@ -23,7 +25,7 @@ namespace XMLTests
             ISerializer serialize = new XMLSerializer();
             reflector.Reflect(path);
             serialize.Serialize(reflector.AssemblyModel.MapUp(), xmlpath);
-            AssemblyMetadata assemblyTest = new AssemblyMetadata(serialize.Deserialize<BaseAssemblyMetadata>(xmlpath));
+            AssemblyMetadata assemblyTest = new AssemblyMetadata(serialize.Deserialize(xmlpath));
             Assert.AreEqual(4, assemblyTest.m_Namespaces.ToList().Count());
         }
         [TestMethod]
@@ -33,7 +35,7 @@ namespace XMLTests
             ISerializer serialize = new XMLSerializer();
             reflector.Reflect(path);
             serialize.Serialize(reflector.AssemblyModel.MapUp(), xmlpath);
-            AssemblyMetadata assemblyTest = new AssemblyMetadata(serialize.Deserialize<BaseAssemblyMetadata>(xmlpath));
+            AssemblyMetadata assemblyTest = new AssemblyMetadata(serialize.Deserialize(xmlpath));
 
             List<TypeMetadata> testLibraryTypes = assemblyTest.m_Namespaces.ToList().Find(t => t.m_NamespaceName == "TPA.ApplicationArchitecture.BusinessLogic").m_Types.ToList();
 
@@ -47,7 +49,7 @@ namespace XMLTests
             ISerializer serialize = new XMLSerializer();
             reflector.Reflect(path);
             serialize.Serialize(reflector.AssemblyModel.MapUp(), xmlpath);
-            AssemblyMetadata assemblyTest = new AssemblyMetadata(serialize.Deserialize<BaseAssemblyMetadata>(xmlpath));
+            AssemblyMetadata assemblyTest = new AssemblyMetadata(serialize.Deserialize(xmlpath));
 
             List<TypeMetadata> test = assemblyTest.m_Namespaces.ToList().Find(t => t.m_NamespaceName == "TPA.ApplicationArchitecture.BusinessLogic").m_Types.ToList();
             Assert.AreEqual(1, test.First().m_Properties.ToList().Count);
@@ -59,7 +61,7 @@ namespace XMLTests
             ISerializer serialize = new XMLSerializer();
             reflector.Reflect(path);
             serialize.Serialize(reflector.AssemblyModel.MapUp(), xmlpath);
-            AssemblyMetadata assemblyTest = new AssemblyMetadata(serialize.Deserialize<BaseAssemblyMetadata>(xmlpath));
+            AssemblyMetadata assemblyTest = new AssemblyMetadata(serialize.Deserialize(xmlpath));
 
             List<TypeMetadata> test = assemblyTest.m_Namespaces.ToList().Find(t => t.m_NamespaceName == "TPA.ApplicationArchitecture.BusinessLogic").m_Types.ToList();
             Assert.AreEqual(6, test.First().m_Methods.ToList().Count);

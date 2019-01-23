@@ -1,6 +1,7 @@
-﻿using Loging;
+﻿
 using System.Collections.ObjectModel;
-using TPA_Etap_1.Reflection.Model;
+using Model;
+using Interfaces;
 
 namespace ViewModel.ViewItems
 {
@@ -8,7 +9,7 @@ namespace ViewModel.ViewItems
     {
         private PropertyMetadata _property;
 
-        public PropertyMetadataView(Logger log, PropertyMetadata property) : base(log)
+        public PropertyMetadataView(ILogger log, PropertyMetadata property) : base(log)
         {
             _property = property;
         }

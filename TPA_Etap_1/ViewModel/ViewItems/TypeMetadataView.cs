@@ -1,9 +1,9 @@
-﻿using Loging;
-using System.Linq;
+﻿using System.Linq;
 using System;
-using TPA_Etap_1.Reflection.Model;
-using DataSerializer.DTO;
+using Model;
+using DataLayer.DTO;
 using System.Collections.ObjectModel;
+using Interfaces;
 
 namespace ViewModel.ViewItems
 {
@@ -12,7 +12,7 @@ namespace ViewModel.ViewItems
     {
         private TypeMetadata _typeMetaData;
 
-        public TypeMetadataView(Logger log, TypeMetadata typeMetadata) : base(log)
+        public TypeMetadataView(ILogger log, TypeMetadata typeMetadata) : base(log)
         {
             _typeMetaData = typeMetadata;
         }

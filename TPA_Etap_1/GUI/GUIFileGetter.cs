@@ -1,6 +1,8 @@
-﻿using Microsoft.Win32;
+﻿using Interfaces;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +11,8 @@ using ViewModel;
 
 namespace GUI
 {
-    public class GUIFileGetter : IFileManager
+    [Export(typeof(IGetterFilePath))]
+    public class GUIFileGetter : IGetterFilePath
     {
         public string getFilePath()
         {

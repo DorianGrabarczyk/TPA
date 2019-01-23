@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataSerializer.DTO
+namespace DataLayer.DTO
 {
     [DataContract(IsReference = true)]
     public class BaseNamespaceMetadata

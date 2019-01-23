@@ -7,13 +7,13 @@
         xmlns:viewmodel ="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Window.Resources>
+    <!--<Window.Resources>
         <local:GUIFileGetter x:Key="Gui" x:Name="WPFgui"/>
     </Window.Resources>
     <Window.DataContext>
         <viewmodel:ViewContext  PathGetter="{StaticResource Gui}">
         </viewmodel:ViewContext>
-    </Window.DataContext>
+    </Window.DataContext>-->
     <Grid Margin="10,10,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="428*"/>
