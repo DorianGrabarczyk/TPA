@@ -28,7 +28,7 @@ namespace DBTest
                 Console.WriteLine(path);
                 path = path.Remove(path.Length - 1);
             }
-            path += "\\Database1.mdf";
+            path += "\\Database2.mdf";
             string a = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = ";
             string b = @"; Integrated Security = True; Connect Timeout = 30";
             DBModelContext db = new DBModelContext(a + path + b);
@@ -50,7 +50,7 @@ namespace DBTest
                 Console.WriteLine(path);
                 path = path.Remove(path.Length - 1);
             }
-            path += "\\Database1.mdf";
+            path += "\\Database2.mdf";
             string a = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = ";
             string b = @"; Integrated Security = True; Connect Timeout = 30";
             DBModelContext db = new DBModelContext(a + path + b);
@@ -75,7 +75,7 @@ namespace DBTest
                 Console.WriteLine(path);
                 path = path.Remove(path.Length - 1);
             }
-            path += "\\Database1.mdf";
+            path += "\\Database2.mdf";
             string a = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = ";
             string b = @"; Integrated Security = True; Connect Timeout = 30";
             DBModelContext db = new DBModelContext(a + path + b);
@@ -98,7 +98,7 @@ namespace DBTest
                 Console.WriteLine(path);
                 path = path.Remove(path.Length - 1);
             }
-            path += "\\Database1.mdf";
+            path += "\\Database2.mdf";
             string a = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = ";
             string b = @"; Integrated Security = True; Connect Timeout = 30";
             DBModelContext db = new DBModelContext(a + path + b);
