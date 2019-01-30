@@ -54,12 +54,13 @@ namespace Model
                            
         }
         public void Save(string addr)
-        {
-            ISerializer serializer = Composition.Container.GetExportedValue<ISerializer>(ConfigurationManager.AppSettings["serialization"]);
-            ILogger logger = Composition.Container.GetExportedValue<ILogger>(ConfigurationManager.AppSettings["logging"]);
+        {          
             BaseAssemblyMetadata temp = this.MapUp();
-            serializer.Serialize(temp, addr);
-            logger.Log(LogEnum.Information, "Serialization complete");
+            SerializationOperations.Save(temp, addr);
+        }
+        public static BaseAssemblyMetadata Read(string addr)
+        {           
+            return Read(addr);
         }
         public string m_Name;
         

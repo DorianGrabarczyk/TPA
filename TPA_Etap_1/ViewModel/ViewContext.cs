@@ -46,10 +46,10 @@ namespace ViewModel
         #region Constructors
 
         public ViewContext()
-        { 
-            Composition Mef = new Composition();
+        {
 
-            Mef.Compose(this);
+
+            Composition.MEF.ComposeParts(this);
             Browse_Bttn = new RelayCommand(Browse);
             HierarchicalAreas = new ObservableCollection<ITree>();
             SerializeButton = new RelayCommand(Serialize);
@@ -128,7 +128,7 @@ namespace ViewModel
                     path = PathGetter.getFilePath();
                 }
             }
-            AssemblyMetadata assembly = new AssemblyMetadata(await Task.Run(() => SerializationOperations.Read(path)));
+            AssemblyMetadata assembly = new AssemblyMetadata(await Task.Run(() => AssemblyMetadata.Read(path)));
             TreeViewLoaded(assembly);
 
         }

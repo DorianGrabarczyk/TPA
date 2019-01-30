@@ -112,6 +112,10 @@
       <Project>{596061A0-5E1E-4448-AFA5-47879C632F72}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MEF\MEF.csproj">
+      <Project>{d761287e-a58e-4cab-ac40-1fe43641d116}</Project>
+      <Name>MEF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ViewModel\ViewModel.csproj">
       <Project>{F6D78536-2603-4666-9AAC-209C2B46A73A}</Project>
       <Name>ViewModel</Name>

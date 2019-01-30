@@ -6,41 +6,42 @@ using System.Threading.Tasks;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
+using System.Configuration;
 
 namespace Mef
 {
     public class Composition
     {
-        private CompositionContainer _container;
-        public static CompositionContainer container;
-        private AggregateCatalog _catalog = new AggregateCatalog();
-         public static CompositionContainer Container
+        private static Composition mef = new Composition();
+
+        public static Composition MEF
+        {
+            get { return mef; }
+        }
+        public CompositionContainer Container
         {
             get
-            {
-                if (container == null)
-                {
-                    var catalog = new DirectoryCatalog("..\\..\\..\\parts", "*");
-                    container = new CompositionContainer(catalog);
-                }
+            { 
 
-                return container;
+                return _container;
             }
         }
+        private  CompositionContainer _container;
 
-        public void Compose(object obj)
+        public void AddCatalog(string path)
         {
-        
-            AggregateCatalog catalog = new AggregateCatalog();
-            DirectoryCatalog exe = new DirectoryCatalog("..\\..\\..\\parts", "*.exe");
-            DirectoryCatalog dll = new DirectoryCatalog("..\\..\\..\\parts");
-            catalog.Catalogs.Add(exe);
-            catalog.Catalogs.Add(dll);
+            var catalog = new DirectoryCatalog(path, "*");
             _container = new CompositionContainer(catalog);
+        }
+
+        public void ComposeParts(object obj)
+        {
             _container.ComposeParts(obj);
+        }
 
-            
-
+        public void Dispose()
+        {
+            _container.Dispose();
         }
     }
 }
