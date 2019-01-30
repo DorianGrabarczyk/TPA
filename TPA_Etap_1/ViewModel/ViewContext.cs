@@ -52,7 +52,7 @@ namespace ViewModel
             Mef.Compose(this);
             Browse_Bttn = new RelayCommand(Browse);
             HierarchicalAreas = new ObservableCollection<ITree>();
-            SerializeButton = new RelayCommand(async() => await Serialize());
+            SerializeButton = new RelayCommand(Serialize);
             //SerializeButton = new RelayCommand(Serialize);
             DeserializeButton = new RelayCommand(async () => await Deserialize());
 
@@ -100,16 +100,16 @@ namespace ViewModel
 
 
         }
-        public async Task Serialize(string pathh = null)
+        public void Serialize()
         {
-            pathh = ConfigurationManager.AppSettings["connectionstring"];
+            string pathh = ConfigurationManager.AppSettings["connectionstring"];
             if (ConfigurationManager.AppSettings["serialization"] != "Database")
             {
                 pathh = PathGetter.getTargetFilePath();
             }
             try
             {
-                await Task.Run(() => _reflector.AssemblyModel.Save(pathh));
+                _reflector.AssemblyModel.Save(pathh);
             }
             catch (ArgumentException exception)
             {
