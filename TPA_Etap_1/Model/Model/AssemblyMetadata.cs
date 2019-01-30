@@ -60,7 +60,7 @@ namespace Model
         }
         public static BaseAssemblyMetadata Read(string addr)
         {           
-            return Read(addr);
+            return SerializationOperations.Read(addr);
         }
         public string m_Name;
         
