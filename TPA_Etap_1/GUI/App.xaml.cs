@@ -29,7 +29,7 @@ namespace GUI
         }
         protected override void OnExit(ExitEventArgs e)
         {
-            Composition.MEF.Dispose();
+            Composition.MEF.Dispose(); 
         }
     }
 }

@@ -53,7 +53,6 @@ namespace ViewModel
             Browse_Bttn = new RelayCommand(Browse);
             HierarchicalAreas = new ObservableCollection<ITree>();
             SerializeButton = new RelayCommand(Serialize);
-            //SerializeButton = new RelayCommand(Serialize);
             DeserializeButton = new RelayCommand(async () => await Deserialize());
 
         }
