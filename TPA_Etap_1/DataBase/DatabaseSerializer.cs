@@ -17,7 +17,7 @@ namespace DataBase
     {
         public BaseAssemblyMetadata Deserialize(string path)
         {
-             using (var context = new DBModelContext(path))
+             using (var context = new DBModelContext())
             {
                 context.Assemblies.Load();
                 context.Namespaces.Load();
@@ -33,7 +33,7 @@ namespace DataBase
 
         public void Serialize(BaseAssemblyMetadata target, string path)
         {
-           using (var context = new DBModelContext(path))
+           using (var context = new DBModelContext())
             {
                 context.Assemblies.Add(DBAssemblyMapper.MapToDB(target));
                 context.SaveChanges();

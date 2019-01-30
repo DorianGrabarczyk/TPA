@@ -6,17 +6,23 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using DataBase.Models;
+using System.Configuration;
+using System.IO;
 
 namespace DataBase
 {
     public class DBModelContext : DbContext
     {
       
-        public DBModelContext(string connection)
-            : base(connection)
+        public DBModelContext()
+            : base(ConfigurationManager.AppSettings["connectionString"])
         {
-            Configuration.LazyLoadingEnabled = false;
-            Configuration.ProxyCreationEnabled = false;
+            //Configuration.LazyLoadingEnabled = false;
+            //Configuration.ProxyCreationEnabled = false;
+            string relative = @"..\..\..\Database";
+            string absolute = Path.GetFullPath(relative);
+
+            AppDomain.CurrentDomain.SetData("DataDirectory", absolute);
         }
 
         public DbSet<DBAssemblyModel> Assemblies { get; set; }

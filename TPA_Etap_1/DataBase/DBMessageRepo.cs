@@ -15,7 +15,7 @@ namespace DataBase
             {
                 MessageString = message
             };
-            using (var context = new DBModelContext(ConfigurationManager.AppSettings["connectionstring"]))
+            using (var context = new DBModelContext())
             {
                 context.Messages.Add(databaseMessage);
                 context.SaveChanges();
