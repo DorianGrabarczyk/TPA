@@ -123,10 +123,7 @@ namespace ViewModel
             path = ConfigurationManager.AppSettings["connectionstring"];
             if (ConfigurationManager.AppSettings["serialization"] != "Database")
             {
-                if (path == null)
-                {
-                    path = PathGetter.getFilePath();
-                }
+                   path = PathGetter.getFilePath();               
             }
             AssemblyMetadata assembly = new AssemblyMetadata(await Task.Run(() => AssemblyMetadata.Read(path)));
             TreeViewLoaded(assembly);
